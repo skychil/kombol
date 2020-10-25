@@ -2,123 +2,104 @@
 
 // Left
 
-COMB(grave, KC_GRAVE, MY_Q, MY_W)
-COMB(lbrc, KC_NO, MY_W, MY_F)
-COMB(rbrc, KC_NO, MY_F, MY_P)
+COMB(lbrc, KC_LBRC, MY_W, MY_F)
+COMB(rbrc, KC_RBRC, MY_F, MY_P)
 COMB(bothbrc, KC_NO, MY_W, MY_P)
-COMB(lcbr, KC_LCBR, MY_Q, MY_F)
-COMB(rcbr, KC_RCBR, MY_F, MY_B)
-COMB(bothcbr, KC_RCBR, MY_Q, MY_P)
-COMB(bothcbr2, KC_RCBR, MY_Q, MY_B)
 
 COMB(at, KC_AT, MY_W, MY_R)
 COMB(hash, KC_HASH, MY_F, MY_S)
 COMB(dollar, KC_DLR, MY_P, MY_T)
 COMB(percent, KC_PERC, MY_B, MY_G)
 
-COMB(copy, KC_COPY, MY_R, MY_F)
-COMB(paste, KC_PASTE, MY_F, MY_T)
-COMB(pasteselection, S(KC_INS), MY_P, MY_G)
-COMB(cut, KC_CUT, MY_R, MY_T)
+COMB(pasteselection, S(KC_INS), MY_R, MY_F)
+COMB(equal, KC_EQUAL, MY_F, MY_T)
 
-COMB(exclaim, KC_EXCLAIM, MY_A, MY_R)
-COMB(esc, KC_ESC, MY_R, MY_S)
+COMB(bksp2, KC_BSPC, MY_R, MY_S)
 COMB(mins, KC_MINS, MY_S, MY_T)
-COMB(return, KC_ENTER, MY_T, MY_G)
+COMB(esc, KC_ESC, MY_R, MY_T)
+COMB(grave, KC_GRAVE, MY_T, MY_G)
 
-COMB(tilde, KC_TILDE, MY_X, MY_S)
-COMB(astr, KC_ASTR, MY_S, MY_C)
-COMB(equal, KC_EQUAL, MY_S, MY_D)
-COMB(plus, KC_PLUS, MY_T, MY_D)
+COMB(unds, KC_UNDS, MY_S, MY_D)
 
-COMB(unds, KC_UNDS, MY_C, MY_D)
-COMB(undo, KC_UNDO, MY_X, MY_C)
-COMB(redo, KC_AGAIN, MY_X, MY_D)
-COMB(ampr, KC_AMPR, MY_D, MY_V)
+COMB(tilde, KC_TILDE, MY_S, MY_C)
+COMB(exclaim, KC_EXCLAIM, MY_T, MY_D)
+
+
+COMB(lcbr, KC_LCBR, MY_X, MY_C)
+COMB(rcbr, KC_RCBR, MY_C, MY_D)
+COMB(bothcbr, KC_NO, MY_X, MY_D)
 
 // Right
 
 COMB(home, KC_HOME, MY_L, MY_U)
 COMB(end, KC_END, MY_U, MY_Y)
+COMB(ins, KC_INS, MY_L, MY_Y)
 
 COMB(circ, KC_CIRC, MY_J, MY_M)
-COMB(del, KC_DEL, MY_L, MY_N)
-/* COMB(esc2, KC_ESC, MY_L, MY_N) */
-COMB(up, KC_UP, MY_N, MY_U)
+COMB(ampr, KC_AMPR, MY_L, MY_N)
 COMB(lparen, KC_LPRN, MY_U, MY_E)
 COMB(rparen, KC_RPRN, MY_Y, MY_I)
+
+COMB(astr, KC_ASTR, MY_N, MY_U)
 COMB(bothparen, KC_NO, MY_U, MY_I)
 
-COMB(lefttest, KC_LEFT, MY_M, MY_E)
-COMB(return2, KC_ENTER, MY_M, MY_N)
-COMB(down, KC_DOWN, MY_N, MY_E)
+COMB(bslash, KC_BSLASH, MY_M, MY_N)
+COMB(return, KC_ENTER, MY_N, MY_E)
 COMB(bksp, KC_BSPC, MY_E, MY_I)
-/* COMB(del2, KC_DEL, MY_E, MY_I) */
-COMB(ctrlbksp, C(KC_BSPC), MY_N, MY_I)
-COMB(bslash, KC_BSLASH, MY_I, MY_O)
+COMB(del, KC_DEL, MY_N, MY_I)
 
-COMB(dotspaceshift, KC_NO, MY_N, MY_H)
-COMB(quesspaceshift, KC_NO, MY_E, MY_COMMA)
-COMB(exclspaceshift, KC_NO, MY_M, MY_K)
+COMB(colon, KC_COLON, MY_N, MY_H)
+COMB(pipe, KC_PIPE, MY_E, MY_COMMA)
 
-COMB(pipe, KC_PIPE, MY_K, MY_H)
-COMB(pgup, KC_PGUP, MY_H, MY_E)
-COMB(pgdown, KC_PGDOWN, MY_E, MY_DOT)
-COMB(left, KC_LEFT, MY_H, MY_COMMA)
-COMB(right, KC_RIGHT, MY_COMMA, MY_DOT)
-COMB(down2, KC_DOWN, MY_H, MY_DOT)
+COMB(plus, KC_PLUS, MY_H, MY_E)
+COMB(bothangle, KC_NO, MY_E, MY_DOT)
+
+COMB(dotspaceshift, KC_NO, MY_H, MY_COMMA)
+COMB(quesspaceshift, KC_NO, MY_COMMA, MY_DOT)
+COMB(exclspaceshift, KC_NO, MY_H, MY_DOT)
 
 
-/* // COMB(and, KC_NO, MY_LT1, MY_A) */
-/* // COMB(are, KC_NO, MY_LT1, MY_R) *//* COMB(THE, KC_NO, MY_LT1, MY_T) */
-/* // COMB(that, KC_NO, MY_LT1, MY_T, MY_A) */
-/* // COMB(this, KC_NO, MY_LT1, MY_T, MY_S) */
-/* COMB(ing, KC_NO, MY_LT1, MY_G) */
-/* COMB(ment, KC_NO, MY_LT1, MY_M) */
-/* COMB(not, KC_NO, MY_LT1, MY_N) */
-/* // COMB(ever, KC_NO, MY_LT1, MY_E) */
-/* // COMB(ion, KC_NO, MY_LT1, MY_I) */
-/* // COMB(ould, KC_NO, MY_LT1, MY_O) */
+// Vim commands for non vim editors
+COMB(vim_S, KC_NO, MY_LT1, MY_S)
+COMB(vim_C, KC_NO, MY_LT1, MY_C)
+COMB(vim_V, KC_NO, MY_LT1, MY_V)
 
-/* COMB(with, KC_NO, MY_LT1, MY_W) */
-/* // COMB(which, KC_NO, MY_LT1, MY_W, MY_H) */
-/* COMB(for, KC_NO, MY_LT1, MY_F) */
-/* COMB(part, KC_NO, MY_LT1, MY_P) */
-/* COMB(all, KC_NO, MY_LT1, MY_L) */
-/* COMB(use, KC_NO, MY_LT1, MY_U) */
-/* COMB(you, KC_NO, MY_LT1, MY_Y) */
 
-/* COMB(dance, KC_NO, MY_LT1, MY_D) */
-/* COMB(sky, KC_NO, MY_LT1, MY_K) */
-/* COMB(here, KC_NO, MY_LT1, MY_H) */
-/* // COMB(fullname, KC_NO, MY_LT1, MY_H) */
-/* // COMB(username, KC_NO, MY_LT1, MY_H) */
-/* // COMB(have, KC_NO, MY_LT1, MY_H, MY_DOT) */
+// Plover
+// TODO: When home row mods can be used in combos, add entries for:
+//    all, for, about, other
 
-/* COMB(macrorec, DM_REC1, MY_R, MY_X) */
-/* COMB(macrostop, DM_RSTP, MY_S, MY_C) */
-/* COMB(tmous, MO(MOUS), MY_RT3, MY_M) */
+COMB(and, KC_NO, MY_N, MY_D)
+COMB(are, KC_NO, MY_R, MY_E)
+COMB(but, KC_NO, MY_B, MY_U)
+COMB(could, KC_NO, MY_C, MY_U)
+COMB(dance, KC_NO, MY_D, MY_E)
+COMB(dancing, KC_NO, MY_D, MY_I)
+COMB(ever, KC_NO, MY_E, MY_V)
+COMB(from, KC_NO, MY_F, MY_M)
+COMB(have, KC_NO, MY_H, MY_V)
+COMB(here, KC_NO, MY_H, MY_R)
+COMB(ing, KC_NO, MY_I, MY_G)
+COMB(just, KC_NO, MY_J, MY_S)
+COMB(ment, KC_NO, MY_M, MY_T)
+COMB(not, KC_NO, MY_N, MY_T)
+COMB(should, KC_NO, MY_S, MY_U)
+COMB(sky, KC_NO, MY_S, MY_K)
+COMB(son, KC_NO, MY_S, MY_N)
+COMB(thanks, KC_NO, MY_T, MY_K)
+COMB(thankyou, KC_NO, MY_T, MY_U)
+COMB(that, KC_NO, MY_T, MY_H)
+COMB(the, KC_NO, MY_T, MY_E)
+COMB(they, KC_NO, MY_T, MY_Y)
+COMB(this, KC_NO, MY_T, MY_I)
+COMB(what, KC_NO, MY_W, MY_T)
+COMB(which, KC_NO, MY_W, MY_H)
+COMB(will, KC_NO, MY_W, MY_L)
+COMB(with, KC_NO, MY_W, MY_I)
+COMB(would, KC_NO, MY_W, MY_U)
+COMB(you, KC_NO, MY_Y, MY_S)
+COMB(your, KC_NO, MY_Y, MY_R)
 
-/* COMB(webback, KC_WBAK, MY_RT3, MY_H) */
-/* COMB(webfwd, KC_WFWD, MY_RT3, MY_L) */
-/* COMB(nexttab, C(KC_TAB), MY_RT3, MY_J) */
-/* COMB(prevtab, C(S(KC_TAB)), MY_RT3, MY_K) */
-
-/* COMB(sleep, KC_SLEP, MY_Q, MY_P) */
-/* COMB(wake, KC_WAKE, MY_W, MY_O) */
-/* COMB(reset, KC_RESET, MY_V, MY_B, MY_N, MY_M) */
-
-/* COMB(vim_s,KC_NO, MY_LT3, MY_LT2, MY_S) */
-/* COMB(vim_c,KC_NO, MY_LT3, MY_LT2, MY_C) */
-/* COMB(vim_v,KC_NO, MY_LT3, MY_LT2, MY_V) */
-
-/* COMB(wspace1, LGUI(KC_1), MY_LT2, MY_A) */
-/* COMB(wspace2, LGUI(KC_2), MY_LT2, MY_R) */
-/* COMB(wspace3, LGUI(KC_3), MY_LT2, MY_S) */
-/* COMB(wspace4, LGUI(KC_4), MY_LT2, MY_T) */
-/* COMB(wspace5, LGUI(KC_5), MY_LT2, MY_G) */
-/* COMB(wspace6, LGUI(KC_6), MY_RT2, MY_M) */
-/* COMB(wspace7, LGUI(KC_7), MY_RT2, MY_N) */
-/* COMB(wspace8, LGUI(KC_8), MY_RT2, MY_E) */
-/* COMB(wspace9, LGUI(KC_9), MY_RT2, MY_I) */
+COMB(mylastname, KC_NO, MY_C, MY_H)
+COMB(myemail, KC_NO, MY_S, MY_DOT)
 

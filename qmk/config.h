@@ -4,13 +4,13 @@
 #define COMBO_VARIABLE_LEN
 #define COMBO_COUNT COMBO_VARIABLE_LEN
 // Time (in ms) for combo processing
-#define COMBO_TERM 60
+#define COMBO_TERM 38
 
 #define TAPPING_TERM 170
 #define TAPPING_TERM_PER_KEY
 
 // Time (in ms) before one shot keys are released
-#define ONESHOT_TIMEOUT 7000
+#define ONESHOT_TIMEOUT 5000
 
 // Prevent accidental repeats of the tap-hold keys when typing quickly.
 #define TAPPING_FORCE_HOLD
@@ -28,8 +28,9 @@
 #ifdef RGBLIGHT_ENABLE
   // Turn off LEDS when host sleeps
   #define RGBLIGHT_SLEEP
-  // Don't mirror LEDS, define them in a loop so rainbow swirl looks cool
+  // Don't mirror LEDS
   #undef RGBLIGHT_SPLIT
+  // Define LEDs in a loop so rainbow swirl is continous across sides
   #define RGBLIGHT_LED_MAP {0,1,2,9,8,7,4,3,5,6,19,18,17,10,11,12,15,16,14,13}
   // Only include animations you're using
   #define RGBLIGHT_EFFECT_RAINBOW_SWIRL
@@ -40,8 +41,7 @@
 // Allows media codes to properly register in macros and rotary encoder code
 #define TAP_CODE_DELAY 10
 
-// Allow either side to be the master.
-// https://docs.qmk.fm/#/config_options?id=setting-handedness
+// Determine left / right by which file is flashed.
 /* #define EE_HANDS */
 
 // Using an Elite C rev3 on the slave side

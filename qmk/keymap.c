@@ -161,43 +161,27 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       MY_RT4, MY_RT3, MY_RT2, MY_RT1, MY_RE
       ),
   [_NAV] = LAYOUT(
-      /* _______, KC_LEFT, KC_UP, KC_DOWN, KC_RIGHT, _______, */
       _______,_______, _______, _______, _______, _______,
-      XXXXXXX, KC_HOME, KC_UP, KC_END, XXXXXXX, _______,
+      XXXXXXX, KC_PGDN, KC_UP, KC_PGUP, XXXXXXX, _______,
 
-      _______, G(KC_1), G(KC_2), G(KC_3), G(KC_4), _______,
-      XXXXXXX, KC_LEFT, KC_DOWN, KC_RIGHT, KC_RETURN, _______,
+      _______,_______, _______, _______, _______, _______,
+      XXXXXXX, KC_LEFT, KC_DOWN, KC_RIGHT, XXXXXXX, _______,
 
-      _______, G(KC_8), G(KC_7), G(KC_6), G(KC_5), XXXXXXX,
+      _______,_______, _______, _______, _______, _______,
       _______, _______, _______, _______,
-      XXXXXXX, KC_PGDN, KC_PGUP, XXXXXXX, XXXXXXX, _______,
+      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,
 
       _______, _______, _______, _______, _______,
       _______, _______, _______, _______, _______
       ),
-  // Right side only copy of nav to prevent accidental key presses
-  [_NAVR] = LAYOUT(
-      _______,_______, _______, _______, _______, _______,
-      XXXXXXX, KC_HOME, KC_UP, KC_END, XXXXXXX, _______,
-
-      _______,_______, _______, _______, _______, _______,
-      XXXXXXX, KC_LEFT, KC_DOWN, KC_RIGHT, KC_RETURN, _______,
-
-      _______,_______, _______, _______, _______, _______,
-      _______, _______, _______, _______,
-      XXXXXXX, KC_PGDN, KC_PGUP, XXXXXXX, XXXXXXX, _______,
-
-      _______, _______, _______, _______, _______,
-      _______, _______, _______, _______, _______
-      ),
-  [_PAD] = LAYOUT(
-      _______, _______, _______, _______, _______, _______,
+  [_NUM] = LAYOUT(
+      _______, KC_F21, KC_F22, KC_F23, KC_F24, XXXXXXX,
       XXXXXXX, KC_7, KC_8, KC_9, XXXXXXX, _______,
 
-      _______, _______, _______, _______, _______, _______,
+      _______, G(KC_1), G(KC_2), G(KC_3), G(KC_4), XXXXXXX,
       XXXXXXX, KC_4, KC_5, KC_6, KC_0, _______,
 
-      _______,_______, _______, _______, _______, _______,
+      _______, G(KC_8), G(KC_7), G(KC_6), G(KC_5), XXXXXXX,
       _______, _______, _______, _______,
       XXXXXXX, KC_1, KC_2, KC_3, KC_DOT, _______,
 
@@ -219,18 +203,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       _______, _______, _______, _______, _______
       ),
   [_M] = LAYOUT(
-      XXXXXXX, XXXXXXX, KC_MPRV, KC_MNXT, KC_MPLY, XXXXXXX,
-      XXXXXXX, KC_WH_D, KC_MS_U, KC_WH_U, _______, KC_PWR,
+      XXXXXXX, XXXXXXX, KC_F13, KC_F14, XXXXXXX, XXXXXXX,
+      XXXXXXX, KC_WH_D, KC_MS_U, KC_WH_U, XXXXXXX, _______,
 
-      XXXXXXX, XXXXXXX, KC_BRID, KC_BRIU, KC_F20, XXXXXXX,
+      XXXXXXX, XXXXXXX, KC_MPRV, KC_MNXT, KC_MPLY, XXXXXXX,
       XXXXXXX, KC_MS_L, KC_MS_D, KC_MS_R, KC_BTN2, KC_F21,
 
-      RGB_HUI, RGB_SAI, RGB_VAI, RGB_MOD, RGB_TOG, _______,
+      RGB_HUI, RGB_SAI, RGB_VAI, RGB_TOG, RGB_MOD, _______,
       _______, _______, _______, _______,
       XXXXXXX, KC_BTN1, KC_BTN2, KC_BTN3, _______, _______,
 
       _______, _______, _______, _______, _______,
-      _______, KC_BTN1, KC_BTN3, KC_BTN2, _______
+      _______, KC_BTN1, KC_BTN2, KC_BTN3, _______
       )
 };
 
@@ -244,58 +228,51 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 #ifdef ENCODER_ENABLE
 void encoder_update_user(uint8_t index, bool clockwise) {
   if (index == 0) { // Left
-    if (IS_LAYER_ON(_NAV) || IS_LAYER_ON(_NAVR)) {
-      // Window
+    if (IS_LAYER_ON(_NUM)) {
+      // Tab Forward / Back
       if (clockwise) {
-        tap_code16(G(KC_RIGHT));
+        tap_code(KC_TAB);
       } else {
-        tap_code16(G(KC_LEFT));
-      }
-    } else if (IS_LAYER_ON(_PAD)) {
-      // Window Split
-      if (clockwise) {
-        tap_code16(C(KC_PLUS));
-      } else {
-        tap_code16(C(KC_MINS));
-      }
-    } else if (IS_LAYER_ON(_F)) {
-      // Workspace
-      if (clockwise) {
-        tap_code16(G(KC_TAB));
-      } else {
-        tap_code16(G(S(KC_TAB)));
+        tap_code16(S(KC_TAB));
       }
     } else if (IS_LAYER_ON(_M)) {
-      // Zoom
+      // Volume
       if (clockwise) {
-        tap_code16(C(KC_PLUS));
+        tap_code(KC_VOLU);
       } else {
-        tap_code16(C(KC_MINS));
+        tap_code(KC_VOLD);
       }
-    } else {
-      // Down / Up
-      if (clockwise) {
-        tap_code(KC_DOWN);
-      } else {
-        tap_code(KC_UP);
-      }
-    }
-  }
-  else if (index == 1) { // Right
-    // Inverting 'clockwise' to be able to flash both sides with the same file
-    if (IS_LAYER_ON(_NAV) || IS_LAYER_ON(_NAVR)) {
-      // Undo / Redo
+    } else if (IS_LAYER_ON(_NAV)) {
+      // Undo / Redo variant
       if (clockwise) {
         tap_code16(C(S(KC_Z)));
       } else {
         tap_code16(C(KC_Z));
       }
     } else if (IS_LAYER_ON(_F)) {
-      // Tab Forward / Back
+      // Undo / Redo variant 2
       if (clockwise) {
-        tap_code(KC_TAB);
+        tap_code16(C(KC_Y));
       } else {
-        tap_code16(S(KC_TAB));
+        tap_code16(C(KC_Z));
+      }
+    } else {
+      // Undo / Redo Keycodes
+      if (clockwise) {
+        tap_code(KC_UNDO);
+      } else {
+        tap_code(KC_AGAIN);
+      }
+    }
+  }
+  else if (index == 1) { // Right
+    // Inverting 'clockwise' to be able to flash both sides with the same file
+    if (IS_LAYER_ON(_NUM)) {
+      // Zoom
+      if (clockwise) {
+        tap_code16(C(KC_EQUAL));
+      } else {
+        tap_code16(C(KC_MINS));
       }
     } else if (IS_LAYER_ON(_M)) {
       // Volume
@@ -340,33 +317,35 @@ void encoder_update_user(uint8_t index, bool clockwise) {
 // {5, 2, HSV_AZURE},  // Starting with LED 6, set 2 LEDs to Azure
 
 const rgblight_segment_t PROGMEM my_macrorec_layer[] = RGBLIGHT_LAYER_SEGMENTS(
-  {0, 6, HSV_PINK},
-  {14, 6, HSV_PINK}
+  {0, 10, HSV_PINK},
+  {10, 10, HSV_PINK}
 );
 const rgblight_segment_t PROGMEM my_capslock_layer[] = RGBLIGHT_LAYER_SEGMENTS(
-  {0, 6, HSV_ORANGE},
-  {14, 6, HSV_ORANGE}
+  {0, 10, HSV_ORANGE},
+  {10, 10, HSV_ORANGE}
 );
 const rgblight_segment_t PROGMEM my_oneshotshift_layer[] = RGBLIGHT_LAYER_SEGMENTS(
-  {0, 3, HSV_CORAL},
-  {17, 3, HSV_CORAL}
+  {0, 10, HSV_CORAL},
+  {10, 10, HSV_CORAL}
 );
 const rgblight_segment_t PROGMEM my_NAV_layer[] = RGBLIGHT_LAYER_SEGMENTS(
-  {1, 2, HSV_BLUE},
-  {17, 2, HSV_BLUE}
+  {10, 1, HSV_BLUE},
+  {14, 6, HSV_BLUE}
 );
-const rgblight_segment_t PROGMEM my_PAD_layer[] = RGBLIGHT_LAYER_SEGMENTS(
-  {0, 4, HSV_GREEN},
-  {11, 2, HSV_GREEN},
-  {15, 5, HSV_GREEN}
+const rgblight_segment_t PROGMEM my_NUM_layer[] = RGBLIGHT_LAYER_SEGMENTS(
+  {0, 6, HSV_RED},
+  {9, 2, HSV_RED},
+  {14, 6, HSV_RED}
 );
 const rgblight_segment_t PROGMEM my_F_layer[] = RGBLIGHT_LAYER_SEGMENTS(
-  {0, 4, HSV_RED},
-  {16, 4, HSV_RED}
+  {0, 6, HSV_GREEN},
+  {9, 2, HSV_GREEN},
+  {14, 6, HSV_GREEN}
 );
 const rgblight_segment_t PROGMEM my_M_layer[] = RGBLIGHT_LAYER_SEGMENTS(
-  {0, 4, HSV_PURPLE},
-  {16, 4, HSV_PURPLE}
+  {0, 6, HSV_PURPLE},
+  {9, 2, HSV_PURPLE},
+  {14, 6, HSV_PURPLE}
 );
 
 // Define up to 8 layers. Later layers take precedence.
@@ -375,7 +354,7 @@ const rgblight_segment_t* const PROGMEM my_rgb_layers[] = RGBLIGHT_LAYERS_LIST(
     my_capslock_layer,
     my_oneshotshift_layer,
     my_NAV_layer,
-    my_PAD_layer,
+    my_NUM_layer,
     my_F_layer,
     my_M_layer
     );
@@ -385,8 +364,8 @@ void keyboard_post_init_user(void) {
 }
 
 layer_state_t layer_state_set_user(layer_state_t state) {
-  rgblight_set_layer_state(3, layer_state_cmp(state, _NAV) || layer_state_cmp(state, _NAVR));
-  rgblight_set_layer_state(4, layer_state_cmp(state, _PAD));
+  rgblight_set_layer_state(3, layer_state_cmp(state, _NAV));
+  rgblight_set_layer_state(4, layer_state_cmp(state, _NUM));
   rgblight_set_layer_state(5, layer_state_cmp(state, _F));
   rgblight_set_layer_state(6, layer_state_cmp(state, _M));
   return state;
