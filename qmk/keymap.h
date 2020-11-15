@@ -12,20 +12,20 @@ enum layer_names {
 };
 
 // Lower Thumb keys
-#define MY_LE G(KC_F)
+#define MY_LE RGB_TOG
 #define MY_LT1 KC_LCTL
 #define MY_LT2 LSFT_T(KC_SPACE)
 #define MY_LT3 MO(_NUM)
 #define MY_LT4 MO(_M)
-#define MY_RT4 SH_TT
+#define MY_RT4 MO(_M)
 #define MY_RT3 MO(_NUM)
-#define MY_RT2 RSFT_T(KC_SPACE)
+#define MY_RT2 RSFT_T(KC_ENTER)
 #define MY_RT1 MO(_NAV)
 #define MY_RE KC_MUTE
 
 // Upper Thumb keys
 #define MY_LT5 MO(_F)
-#define MY_LT6 TD_CACCCV
+#define MY_LT6 MO(_VIM)
 #define MY_RT6 MO(_VIM)
 #define MY_RT5 MO(_F)
 
@@ -33,8 +33,9 @@ enum layer_names {
 #define MY_LOH KC_TAB
 #define MY_LOM LCTL_T(KC_ESC)
 #define MY_LOL C(KC_LALT)
-#define MY_ROH KC_BSPACE
-#define MY_ROM LCTL_T(KC_QUOTE)
+#define MY_ROH KC_QUOTE
+#define MY_ROM KC_BSPACE
+/* #define MY_ROM LCTL_T(KC_QUOTE) */
 #define MY_ROL C(KC_LALT)
 
 // Alpha keys
@@ -80,10 +81,10 @@ enum layer_names {
 #define MY_SCLN KC_SCLN
 
 
-// Tap Dance
-enum {
-  CACCCV_TD = 0,
-};
+/* // Tap Dance */
+/* enum { */
+/*   CACCCV_TD = 0, */
+/* }; */
 
-#define TD_CACCCV TD(CACCCV_TD)
+/* #define TD_CACCCV TD(CACCCV_TD) */
 

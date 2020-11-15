@@ -17,49 +17,49 @@
 #include "keymap.h"
 
 
-// Tap dance states
-typedef enum {
-  SINGLE_TAP,
-  SINGLE_HOLD,
-  DOUBLE_TAP,
-  DOUBLE_HOLD,
-  TWO_SINGLE_TAPS,
-  TOO_MANY_TAPS
-} td_state_t;
+/* // Tap dance states */
+/* typedef enum { */
+/*   SINGLE_TAP, */
+/*   SINGLE_HOLD, */
+/*   DOUBLE_TAP, */
+/*   DOUBLE_HOLD, */
+/*   TWO_SINGLE_TAPS, */
+/*   TOO_MANY_TAPS */
+/* } td_state_t; */
 
-// create a global instance of the tapdance state type
-static td_state_t td_state;
-/* static bool tap_dance_active = false; */
+/* // create a global instance of the tapdance state type */
+/* static td_state_t td_state; */
+/* /1* static bool tap_dance_active = false; *1/ */
 
-// track the current tap dance state
-int cur_dance (qk_tap_dance_state_t *state) {
-  switch (state->count) {
-    case 1:
-      if (state->interrupted || !state->pressed) {
-        return SINGLE_TAP;
-      } else {
-        return SINGLE_HOLD;
-      }
-      break;
-    case 2:
-      if (state->interrupted) return TWO_SINGLE_TAPS; // only for alphas, like o in loop
-      else if (state->pressed) return DOUBLE_HOLD;
-      else return DOUBLE_TAP;
-      break;
-    default:
-      return TOO_MANY_TAPS;
-  }
-};
+/* // track the current tap dance state */
+/* int cur_dance (qk_tap_dance_state_t *state) { */
+/*   switch (state->count) { */
+/*     case 1: */
+/*       if (state->interrupted || !state->pressed) { */
+/*         return SINGLE_TAP; */
+/*       } else { */
+/*         return SINGLE_HOLD; */
+/*       } */
+/*       break; */
+/*     case 2: */
+/*       if (state->interrupted) return TWO_SINGLE_TAPS; // only for alphas, like o in loop */
+/*       else if (state->pressed) return DOUBLE_HOLD; */
+/*       else return DOUBLE_TAP; */
+/*       break; */
+/*     default: */
+/*       return TOO_MANY_TAPS; */
+/*   } */
+/* }; */
 
-void CACCCV_finished(qk_tap_dance_state_t *state, void *user_data) {
-  td_state = cur_dance(state);
-  switch (td_state) {
-    case SINGLE_HOLD: tap_code16(C(KC_A)); break;
-    case SINGLE_TAP: tap_code16(C(KC_C)); break;
-    case DOUBLE_TAP: tap_code16(C(KC_V)); break;
-    default: break;
-  }
-};
+/* void CACCCV_finished(qk_tap_dance_state_t *state, void *user_data) { */
+/*   td_state = cur_dance(state); */
+/*   switch (td_state) { */
+/*     case SINGLE_HOLD: tap_code16(C(KC_A)); break; */
+/*     case SINGLE_TAP: tap_code16(C(KC_C)); break; */
+/*     case DOUBLE_TAP: tap_code16(C(KC_V)); break; */
+/*     default: break; */
+/*   } */
+/* }; */
 
 // The following behavior is implemented much simpler as a combo:
 /* // Double tap dot for ". <osm shift>" */
@@ -124,11 +124,11 @@ void CACCCV_finished(qk_tap_dance_state_t *state, void *user_data) {
 /*   } */
 /* } */
 
-qk_tap_dance_action_t tap_dance_actions[] = {
-  [CACCCV_TD] = ACTION_TAP_DANCE_FN(CACCCV_finished)
-  /* [DOT_TD] = ACTION_TAP_DANCE_FN(dot_finished), */
-  /* [SYM_TD] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, SYM_finished, SYM_reset), */
-};
+/* qk_tap_dance_action_t tap_dance_actions[] = { */
+/*   [CACCCV_TD] = ACTION_TAP_DANCE_FN(CACCCV_finished) */
+/*   /1* [DOT_TD] = ACTION_TAP_DANCE_FN(dot_finished), *1/ */
+/*   /1* [SYM_TD] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, SYM_finished, SYM_reset), *1/ */
+/* }; */
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // L00, L01, L02, L03, L04, L05,                     R06, R07, R08, R09, R10, R11,
@@ -161,29 +161,29 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       MY_RT4, MY_RT3, MY_RT2, MY_RT1, MY_RE
       ),
   [_NAV] = LAYOUT(
-      _______,_______, _______, _______, _______, _______,
+      _______, _______, _______, _______, _______, _______,
       XXXXXXX, KC_PGDN, KC_UP, KC_PGUP, XXXXXXX, _______,
 
-      _______,_______, _______, _______, _______, _______,
+      _______, _______, _______, _______, _______, _______,
       XXXXXXX, KC_LEFT, KC_DOWN, KC_RIGHT, XXXXXXX, _______,
 
-      _______,_______, _______, _______, _______, _______,
+      _______, _______, _______, _______, _______, _______,
       _______, _______, _______, _______,
-      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,
+      XXXXXXX, XXXXXXX, KC_LT, KC_GT, XXXXXXX, _______,
 
       _______, _______, _______, _______, _______,
       _______, _______, _______, _______, _______
       ),
   [_NUM] = LAYOUT(
-      _______, KC_F21, KC_F22, KC_F23, KC_F24, XXXXXXX,
+      _______, KC_F14, KC_F15, KC_F16, KC_F17, KC_F18, // Xf86Launch 5-9
       XXXXXXX, KC_7, KC_8, KC_9, XXXXXXX, _______,
 
       _______, G(KC_1), G(KC_2), G(KC_3), G(KC_4), XXXXXXX,
-      XXXXXXX, KC_4, KC_5, KC_6, KC_0, _______,
+      KC_PLUS, KC_4, KC_5, KC_6, KC_0, _______,
 
       _______, G(KC_8), G(KC_7), G(KC_6), G(KC_5), XXXXXXX,
       _______, _______, _______, _______,
-      XXXXXXX, KC_1, KC_2, KC_3, KC_DOT, _______,
+      KC_MINS, KC_1, KC_2, KC_3, KC_DOT, _______,
 
       _______, _______, _______, _______, _______,
       _______, _______, _______, _______, _______
@@ -199,15 +199,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       _______, _______, _______, _______,
       XXXXXXX, KC_F1, KC_F2, KC_F3, KC_F12, KC_PAUSE,
 
-      _______, _______, _______, _______, _______, 
+      _______, _______, _______, _______, _______,
       _______, _______, _______, _______, _______
       ),
   [_M] = LAYOUT(
-      XXXXXXX, XXXXXXX, KC_F13, KC_F14, XXXXXXX, XXXXXXX,
+      _______, XXXXXXX, KC_F23, KC_F22, XXXXXXX, XXXXXXX,
       XXXXXXX, KC_WH_D, KC_MS_U, KC_WH_U, XXXXXXX, _______,
 
       XXXXXXX, XXXXXXX, KC_MPRV, KC_MNXT, KC_MPLY, XXXXXXX,
-      XXXXXXX, KC_MS_L, KC_MS_D, KC_MS_R, KC_BTN2, KC_F21,
+      XXXXXXX, KC_MS_L, KC_MS_D, KC_MS_R, KC_BTN2, _______,
 
       RGB_HUI, RGB_SAI, RGB_VAI, RGB_TOG, RGB_MOD, _______,
       _______, _______, _______, _______,
@@ -215,6 +215,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
       _______, _______, _______, _______, _______,
       _______, KC_BTN1, KC_BTN2, KC_BTN3, _______
+      ),
+  [_VIM] = LAYOUT(
+      _______, KC_Q, _______, _______, _______, _______,
+      _______, _______, _______, _______, _______, _______,
+
+      _______, _______, _______, _______, _______, _______,
+      _______, _______, _______, _______, _______, _______,
+
+      _______, _______, _______, _______, _______, _______,
+      _______, _______, _______, _______,
+      _______, _______, _______, _______, _______, _______,
+
+      _______, _______, _______, _______, _______,
+      _______, _______, _______, _______, _______
       )
 };
 
@@ -228,7 +242,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 #ifdef ENCODER_ENABLE
 void encoder_update_user(uint8_t index, bool clockwise) {
   if (index == 0) { // Left
-    if (IS_LAYER_ON(_NUM)) {
+    if (IS_LAYER_ON(_NAV)) {
       // Tab Forward / Back
       if (clockwise) {
         tap_code(KC_TAB);
@@ -242,26 +256,26 @@ void encoder_update_user(uint8_t index, bool clockwise) {
       } else {
         tap_code(KC_VOLD);
       }
-    } else if (IS_LAYER_ON(_NAV)) {
-      // Undo / Redo variant
+    } else if (IS_LAYER_ON(_NUM)) {
+      // Undo / Redo (Ctrl Shift Z)
       if (clockwise) {
         tap_code16(C(S(KC_Z)));
       } else {
         tap_code16(C(KC_Z));
       }
     } else if (IS_LAYER_ON(_F)) {
-      // Undo / Redo variant 2
-      if (clockwise) {
-        tap_code16(C(KC_Y));
-      } else {
-        tap_code16(C(KC_Z));
-      }
-    } else {
-      // Undo / Redo Keycodes
+      // Undo / Redo (Keycodes)
       if (clockwise) {
         tap_code(KC_UNDO);
       } else {
         tap_code(KC_AGAIN);
+      }
+    } else {
+      // Undo / Redo (Ctrl Y)
+      if (clockwise) {
+        tap_code16(C(KC_Y));
+      } else {
+        tap_code16(C(KC_Z));
       }
     }
   }
@@ -324,24 +338,20 @@ const rgblight_segment_t PROGMEM my_capslock_layer[] = RGBLIGHT_LAYER_SEGMENTS(
   {0, 10, HSV_ORANGE},
   {10, 10, HSV_ORANGE}
 );
-const rgblight_segment_t PROGMEM my_oneshotshift_layer[] = RGBLIGHT_LAYER_SEGMENTS(
-  {0, 10, HSV_CORAL},
-  {10, 10, HSV_CORAL}
-);
-const rgblight_segment_t PROGMEM my_NAV_layer[] = RGBLIGHT_LAYER_SEGMENTS(
-  {10, 1, HSV_BLUE},
-  {14, 6, HSV_BLUE}
-);
-const rgblight_segment_t PROGMEM my_NUM_layer[] = RGBLIGHT_LAYER_SEGMENTS(
+const rgblight_segment_t PROGMEM my_F_layer[] = RGBLIGHT_LAYER_SEGMENTS(
   {0, 6, HSV_RED},
   {9, 2, HSV_RED},
   {14, 6, HSV_RED}
 );
-const rgblight_segment_t PROGMEM my_F_layer[] = RGBLIGHT_LAYER_SEGMENTS(
+const rgblight_segment_t PROGMEM my_VIM_layer[] = RGBLIGHT_LAYER_SEGMENTS(
   {0, 6, HSV_GREEN},
   {9, 2, HSV_GREEN},
   {14, 6, HSV_GREEN}
 );
+/* const rgblight_segment_t PROGMEM my_NAV_layer[] = RGBLIGHT_LAYER_SEGMENTS( */
+/*   {10, 1, HSV_BLUE}, */
+/*   {14, 6, HSV_BLUE} */
+/* ); */
 const rgblight_segment_t PROGMEM my_M_layer[] = RGBLIGHT_LAYER_SEGMENTS(
   {0, 6, HSV_PURPLE},
   {9, 2, HSV_PURPLE},
@@ -352,11 +362,11 @@ const rgblight_segment_t PROGMEM my_M_layer[] = RGBLIGHT_LAYER_SEGMENTS(
 const rgblight_segment_t* const PROGMEM my_rgb_layers[] = RGBLIGHT_LAYERS_LIST(
     my_macrorec_layer, // 0
     my_capslock_layer,
-    my_oneshotshift_layer,
-    my_NAV_layer,
-    my_NUM_layer,
     my_F_layer,
-    my_M_layer
+    my_M_layer,
+    my_VIM_layer
+    /* my_NAV_layer, */
+    /* my_NUM_layer, */
     );
 
 void keyboard_post_init_user(void) {
@@ -364,10 +374,9 @@ void keyboard_post_init_user(void) {
 }
 
 layer_state_t layer_state_set_user(layer_state_t state) {
-  rgblight_set_layer_state(3, layer_state_cmp(state, _NAV));
-  rgblight_set_layer_state(4, layer_state_cmp(state, _NUM));
-  rgblight_set_layer_state(5, layer_state_cmp(state, _F));
-  rgblight_set_layer_state(6, layer_state_cmp(state, _M));
+  rgblight_set_layer_state(2, layer_state_cmp(state, _F));
+  rgblight_set_layer_state(3, layer_state_cmp(state, _M));
+  rgblight_set_layer_state(4, layer_state_cmp(state, _VIM));
   return state;
 }
 
@@ -391,23 +400,17 @@ void dynamic_macro_play_user(int8_t direction) {
   rgblight_set_layer_state(0, false);
 }
 
-// Track one-shot shift status
-// Performance critical code, this function runs every matrix scan!
-void matrix_scan_user(void) {
-  rgblight_set_layer_state(2, get_oneshot_mods() & MOD_MASK_SHIFT);
-}
-
-
-// Define map for swapping sides (mirror)
-const keypos_t hand_swap_config[MATRIX_ROWS][MATRIX_COLS] = {
-  {{0, 4}, {1, 4}, {2, 4}, {3, 4}, {4, 4}, {5, 4}, {6, 4}, {7, 4}},
-  {{0, 5}, {1, 5}, {2, 5}, {3, 5}, {4, 5}, {5, 5}, {6, 5}, {7, 5}},
-  {{0, 6}, {1, 6}, {2, 6}, {3, 6}, {4, 6}, {5, 6}, {6, 6}, {7, 6}},
-  {{0, 7}, {1, 7}, {2, 7}, {3, 7}, {4, 7}, {5, 7}, {6, 7}, {7, 7}},
-  {{0, 0}, {1, 0}, {2, 0}, {3, 0}, {4, 0}, {5, 0}, {6, 0}, {7, 0}},
-  {{0, 1}, {1, 1}, {2, 1}, {3, 1}, {4, 1}, {5, 1}, {6, 1}, {7, 1}},
-  {{0, 2}, {1, 2}, {2, 2}, {3, 2}, {4, 2}, {5, 2}, {6, 2}, {7, 2}},
-  {{0, 3}, {1, 3}, {2, 3}, {3, 3}, {4, 3}, {5, 3}, {6, 3}, {7, 3}}
-};
-
 #endif
+
+
+// Define map for swap hands (mirror sides)
+/* const keypos_t hand_swap_config[MATRIX_ROWS][MATRIX_COLS] = { */
+/*   {{0, 4}, {1, 4}, {2, 4}, {3, 4}, {4, 4}, {5, 4}, {6, 4}, {7, 4}}, */
+/*   {{0, 5}, {1, 5}, {2, 5}, {3, 5}, {4, 5}, {5, 5}, {6, 5}, {7, 5}}, */
+/*   {{0, 6}, {1, 6}, {2, 6}, {3, 6}, {4, 6}, {5, 6}, {6, 6}, {7, 6}}, */
+/*   {{0, 7}, {1, 7}, {2, 7}, {3, 7}, {4, 7}, {5, 7}, {6, 7}, {7, 7}}, */
+/*   {{0, 0}, {1, 0}, {2, 0}, {3, 0}, {4, 0}, {5, 0}, {6, 0}, {7, 0}}, */
+/*   {{0, 1}, {1, 1}, {2, 1}, {3, 1}, {4, 1}, {5, 1}, {6, 1}, {7, 1}}, */
+/*   {{0, 2}, {1, 2}, {2, 2}, {3, 2}, {4, 2}, {5, 2}, {6, 2}, {7, 2}}, */
+/*   {{0, 3}, {1, 3}, {2, 3}, {3, 3}, {4, 3}, {5, 3}, {6, 3}, {7, 3}} */
+/* }; */

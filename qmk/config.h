@@ -4,7 +4,7 @@
 #define COMBO_VARIABLE_LEN
 #define COMBO_COUNT COMBO_VARIABLE_LEN
 // Time (in ms) for combo processing
-#define COMBO_TERM 38
+#define COMBO_TERM 39
 
 #define TAPPING_TERM 170
 #define TAPPING_TERM_PER_KEY
