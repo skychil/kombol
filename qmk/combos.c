@@ -9,7 +9,7 @@ void shift_send_string(const char *normal, const char *shifted);
 
 void process_combo_event(uint16_t combo_index, bool pressed) {
   // Process mod-taps before the combo is fired,
-  // this helps making modifier-aware combos,
+  // this helps making modifier-aware combos
   // more fluid with home row mods.
   action_tapping_process((keyrecord_t){});
 
@@ -38,24 +38,18 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
         tap_code(KC_LEFT); // Cursor in between
       }
       break;
-    /* case C_dotspaceshift: */
-    /*   if (pressed) { */
-    /*     SEND_STRING(". "); */
-    /*     set_oneshot_mods(MOD_LSFT | get_oneshot_mods()); */
-    /*   } */
-    /*   break; */
-    /* case C_exclspaceshift: */
-    /*   if (pressed) { */
-    /*     SEND_STRING("! "); */
-    /*     set_oneshot_mods(MOD_LSFT | get_oneshot_mods()); */
-    /*   } */
-    /*   break; */
-    /* case C_quesspaceshift: */
-    /*   if (pressed) { */
-    /*     SEND_STRING("? "); */
-    /*     set_oneshot_mods(MOD_LSFT | get_oneshot_mods()); */
-    /*   } */
-    /*   break; */
+    case C_bothdquo:
+      if (pressed) {
+        send_string("\"\"");
+        tap_code(KC_LEFT); // Cursor in between
+      }
+      break;
+    case C_bothquote:
+      if (pressed) {
+        send_string("''");
+        tap_code(KC_LEFT); // Cursor in between
+      }
+      break;
 
     case C_and: if (pressed) shift_send_string("and", "And"); break;
     case C_are: if (pressed) shift_send_string("are", "Are"); break;
@@ -77,7 +71,7 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
     case C_sky: if (pressed) shift_send_string("sky", "Sky"); break;
     case C_son: if (pressed) shift_send_string("son", "Son"); break;
     case C_some: if (pressed) shift_send_string("some", "Some"); break;
-    case C_thanks: if (pressed) shift_send_string("thank", "Thank"); break;
+    case C_thanks: if (pressed) shift_send_string("thanks", "Thanks"); break;
     case C_thankyou: if (pressed) shift_send_string("thank you", "Thank you"); break;
     case C_that: if (pressed) shift_send_string("that", "That"); break;
     case C_the: if (pressed) shift_send_string("the", "The"); break;
@@ -95,28 +89,7 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
     case C_mylastname: if (pressed) shift_send_string(MY_LASTNAME_LOWERCASE, MY_LASTNAME); break;
     case C_myemail: if (pressed) shift_send_string(MY_EMAIL, MY_EMAIL_2); break;
 
-    /* case C_vim_V: */
-    /*   if (!pressed) break; */
-    /*   tap_code(KC_HOME); */
-    /*   register_code(KC_LSFT); */
-    /*   tap_code(KC_END); */
-    /*   unregister_code(KC_LSFT); */
-    /*   break; */
-    /* case C_vim_S: */
-    /*   if (!pressed) break; */
-    /*   tap_code(KC_HOME); */
-    /*   register_code(KC_LSFT); */
-    /*   tap_code(KC_END); */
-    /*   unregister_code(KC_LSFT); */
-    /*   tap_code(KC_BSPC); */
-    /*   break; */
-    /* case C_vim_C: */
-    /*   if (!pressed) break; */
-    /*   register_code(KC_LSFT); */
-    /*   tap_code(KC_END); */
-    /*   unregister_code(KC_LSFT); */
-    /*   tap_code(KC_BSPC); */
-    /*   break; */
+
     default:
       break;
   }

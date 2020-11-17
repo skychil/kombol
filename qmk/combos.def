@@ -29,7 +29,6 @@ COMB(bothcbr, KC_NO, MY_X, MY_D)
 
 COMB(home, KC_HOME, MY_L, MY_U)
 COMB(end, KC_END, MY_U, MY_Y)
-COMB(ins, KC_INS, MY_L, MY_Y)
 
 COMB(circ, KC_CIRC, MY_J, MY_M)
 COMB(ampr, KC_AMPR, MY_L, MY_N)
@@ -39,20 +38,15 @@ COMB(bothparen, KC_NO, MY_U, MY_I)
 COMB(rparen, KC_RPRN, MY_Y, MY_I)
 
 COMB(bslash, KC_BSLASH, MY_M, MY_N)
-/* COMB(return, KC_ENTER, MY_N, MY_E) */
-COMB(bksp, KC_BSPC, MY_E, MY_I)
 COMB(quote, KC_QUOTE, MY_N, MY_E)
-COMB(dquote, KC_DQUO, MY_H, MY_E)
-COMB(del, KC_DEL, MY_N, MY_I)
+COMB(del, KC_DEL, MY_E, MY_I)
+COMB(bothquote, KC_NO, MY_N, MY_I)
 
 COMB(pipe, KC_PIPE, MY_N, MY_H)
+COMB(dquo, KC_DQUO, MY_H, MY_E)
+
 COMB(bothangle, KC_NO, MY_COMMA, MY_DOT)
-
-
-// Vim commands for non vim editors
-/* COMB(vim_S, KC_NO, MY_LT6, MY_S) */
-/* COMB(vim_C, KC_NO, MY_LT6, MY_C) */
-/* COMB(vim_V, KC_NO, MY_LT6, MY_V) */
+COMB(bothdquo, KC_NO, MY_H, MY_COMMA)
 
 
 // Plover

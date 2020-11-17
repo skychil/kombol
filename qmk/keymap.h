@@ -16,7 +16,7 @@ enum layer_names {
 #define MY_LT1 KC_LCTL
 #define MY_LT2 LSFT_T(KC_SPACE)
 #define MY_LT3 MO(_NUM)
-#define MY_LT4 MO(_M)
+#define MY_LT4 MO(_VIM)
 #define MY_RT4 MO(_M)
 #define MY_RT3 MO(_NUM)
 #define MY_RT2 RSFT_T(KC_ENTER)
@@ -25,15 +25,16 @@ enum layer_names {
 
 // Upper Thumb keys
 #define MY_LT5 MO(_F)
-#define MY_LT6 MO(_VIM)
+#define MY_LT6 MO(_M)
 #define MY_RT6 MO(_VIM)
 #define MY_RT5 MO(_F)
 
 // Outer Edge Keys
 #define MY_LOH KC_TAB
-#define MY_LOM LCTL_T(KC_ESC)
+#define MY_LOM LALT_T(KC_ESC)
 #define MY_LOL C(KC_LALT)
-#define MY_ROH KC_QUOTE
+
+#define MY_ROH KC_INS
 #define MY_ROM KC_BSPACE
 /* #define MY_ROM LCTL_T(KC_QUOTE) */
 #define MY_ROL C(KC_LALT)
@@ -58,7 +59,7 @@ enum layer_names {
 /* #define MY_E LCTL_T(KC_E) */
 /* #define MY_I LALT_T(KC_I) */
 
-#define MY_Z LALT_T(KC_Z)
+#define MY_Z KC_Z
 #define MY_X KC_X
 #define MY_C KC_C
 #define MY_D KC_D
@@ -67,7 +68,7 @@ enum layer_names {
 #define MY_H KC_H
 #define MY_COMMA KC_COMMA
 #define MY_DOT KC_DOT
-#define MY_SLASH LALT_T(KC_SLASH)
+#define MY_SLASH LCTL_T(KC_SLASH)
 
 #define MY_Q KC_Q
 #define MY_W KC_W

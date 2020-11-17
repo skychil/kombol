@@ -16,6 +16,43 @@
 
 #include "keymap.h"
 
+enum custom_keycodes {
+  VIM_C = SAFE_RANGE,
+  VIM_D,
+  VIM_S,
+  VIM_V,
+};
+
+// Vim commands for non-vim editors
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+  switch (keycode) {
+    /* Alterative format: SEND_STRING(SS_LCTL("c")); */
+    case VIM_C:
+      if (!record->event.pressed) break;
+      register_code(KC_LSFT);
+      tap_code(KC_END);
+      unregister_code(KC_LSFT);
+      tap_code(KC_DEL);
+      break;
+    case VIM_S:
+    case VIM_D:
+      if (!record->event.pressed) break;
+      tap_code(KC_HOME);
+      register_code(KC_LSFT);
+      tap_code(KC_END);
+      unregister_code(KC_LSFT);
+      tap_code(KC_DEL);
+      break;
+    case VIM_V:
+      if (!record->event.pressed) break;
+      tap_code(KC_HOME);
+      register_code(KC_LSFT);
+      tap_code(KC_END);
+      unregister_code(KC_LSFT);
+      break;
+  }
+  return true;
+};
 
 /* // Tap dance states */
 /* typedef enum { */
@@ -209,23 +246,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       XXXXXXX, XXXXXXX, KC_MPRV, KC_MNXT, KC_MPLY, XXXXXXX,
       XXXXXXX, KC_MS_L, KC_MS_D, KC_MS_R, KC_BTN2, _______,
 
-      RGB_HUI, RGB_SAI, RGB_VAI, RGB_TOG, RGB_MOD, _______,
+      _______, RGB_HUI, RGB_SAI, RGB_VAI, RGB_MOD, _______,
       _______, _______, _______, _______,
-      XXXXXXX, KC_BTN1, KC_BTN2, KC_BTN3, _______, _______,
+      XXXXXXX, KC_BTN1, KC_BTN2, KC_BTN3, XXXXXXX, _______,
 
       _______, _______, _______, _______, _______,
-      _______, KC_BTN1, KC_BTN2, KC_BTN3, _______
+      _______, _______, _______, _______, _______
       ),
   [_VIM] = LAYOUT(
-      _______, KC_Q, _______, _______, _______, _______,
-      _______, _______, _______, _______, _______, _______,
+      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
 
-      _______, _______, _______, _______, _______, _______,
-      _______, _______, _______, _______, _______, _______,
+      XXXXXXX, XXXXXXX, XXXXXXX, VIM_S, XXXXXXX, XXXXXXX,
+      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
 
-      _______, _______, _______, _______, _______, _______,
-      _______, _______, _______, _______,
-      _______, _______, _______, _______, _______, _______,
+      XXXXXXX, XXXXXXX, XXXXXXX, VIM_C, VIM_D, VIM_V,
+      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
 
       _______, _______, _______, _______, _______,
       _______, _______, _______, _______, _______
@@ -339,23 +376,19 @@ const rgblight_segment_t PROGMEM my_capslock_layer[] = RGBLIGHT_LAYER_SEGMENTS(
   {10, 10, HSV_ORANGE}
 );
 const rgblight_segment_t PROGMEM my_F_layer[] = RGBLIGHT_LAYER_SEGMENTS(
-  {0, 6, HSV_RED},
-  {9, 2, HSV_RED},
-  {14, 6, HSV_RED}
+  {0, 6, HSV_CHARTREUSE},
+  {9, 2, HSV_CHARTREUSE},
+  {14, 6, HSV_CHARTREUSE}
 );
-const rgblight_segment_t PROGMEM my_VIM_layer[] = RGBLIGHT_LAYER_SEGMENTS(
-  {0, 6, HSV_GREEN},
-  {9, 2, HSV_GREEN},
-  {14, 6, HSV_GREEN}
-);
-/* const rgblight_segment_t PROGMEM my_NAV_layer[] = RGBLIGHT_LAYER_SEGMENTS( */
-/*   {10, 1, HSV_BLUE}, */
-/*   {14, 6, HSV_BLUE} */
-/* ); */
 const rgblight_segment_t PROGMEM my_M_layer[] = RGBLIGHT_LAYER_SEGMENTS(
   {0, 6, HSV_PURPLE},
   {9, 2, HSV_PURPLE},
   {14, 6, HSV_PURPLE}
+);
+const rgblight_segment_t PROGMEM my_VIM_layer[] = RGBLIGHT_LAYER_SEGMENTS(
+  {0, 6, HSV_CYAN},
+  {9, 2, HSV_CYAN},
+  {14, 6, HSV_CYAN}
 );
 
 // Define up to 8 layers. Later layers take precedence.
@@ -365,8 +398,6 @@ const rgblight_segment_t* const PROGMEM my_rgb_layers[] = RGBLIGHT_LAYERS_LIST(
     my_F_layer,
     my_M_layer,
     my_VIM_layer
-    /* my_NAV_layer, */
-    /* my_NUM_layer, */
     );
 
 void keyboard_post_init_user(void) {
