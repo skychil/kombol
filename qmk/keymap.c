@@ -66,10 +66,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
 /* // create a global instance of the tapdance state type */
 /* static td_state_t td_state; */
-/* /1* static bool tap_dance_active = false; *1/ */
 
 /* // track the current tap dance state */
-/* int cur_dance (qk_tap_dance_state_t *state) { */
+/* int cur_tapdance (qk_tap_dance_state_t *state) { */
 /*   switch (state->count) { */
 /*     case 1: */
 /*       if (state->interrupted || !state->pressed) { */
@@ -88,83 +87,55 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 /*   } */
 /* }; */
 
-/* void CACCCV_finished(qk_tap_dance_state_t *state, void *user_data) { */
-/*   td_state = cur_dance(state); */
-/*   switch (td_state) { */
-/*     case SINGLE_HOLD: tap_code16(C(KC_A)); break; */
-/*     case SINGLE_TAP: tap_code16(C(KC_C)); break; */
-/*     case DOUBLE_TAP: tap_code16(C(KC_V)); break; */
-/*     default: break; */
-/*   } */
-/* }; */
+/* void dynamicMacro1(qk_tap_dance_state_t *state, void *user_data) { */
+/*   td_state = cur_tapdance(state); */
+/*   keyrecord_t kr; */
+/*   uint16_t action; */
 
-// The following behavior is implemented much simpler as a combo:
-/* // Double tap dot for ". <osm shift>" */
-/* // This quickly ends a sentence and begins another. */
-/* void dot_finished(qk_tap_dance_state_t *state, void *user_data) { */
-/*   if (state->count == 2) { */
-/*     if (get_mods() & MOD_MASK_SHIFT) { // If Shift is active */
-/*       SEND_STRING(">"); */
-/*     } else { */
-/*       SEND_STRING(". "); */
-/*       set_oneshot_mods(MOD_LSFT | get_oneshot_mods()); */
-/*     } */
-/*   } else { */
-/*     for (uint8_t i = state->count; i > 0; i--) { */
-/*       tap_code16(KC_DOT); */
-/*     } */
-/*   } */
-/* }; */
-
-// Working code for having one key control two layers:
-// One shot layer 1 on tap, layer 2 on hold
-// Too mentally taxing to actually use
-/* void SYM_finished(qk_tap_dance_state_t *state, void *user_data) { */
-/*   td_state = cur_dance(state); */
 /*   switch (td_state) { */
-/*     case SINGLE_TAP: */
-/*       if (tap_dance_active) { */
-/*         reset_oneshot_layer(); */
-/*         tap_dance_active = false; */
-/*       } else { */
-/*         set_oneshot_layer(_SYM, ONESHOT_START); */
-/*         tap_dance_active = true; */
-/*       } */
-/*       break; */
 /*     case SINGLE_HOLD: */
-/*       layer_on(_NUM); */
+/*       action = DYN_REC_START1; */
+/*       kr.event.pressed = false; */
 /*       break; */
-/*     case DOUBLE_HOLD: */
-/*       layer_on(_SYM); */
+/*     case SINGLE_TAP: */
+/*       action = DYN_MACRO_PLAY1; */
+/*       kr.event.pressed = false; */
+/*       break; */
+/*     case DOUBLE_TAP: */
+/*       action = DYN_REC_STOP; */
+/*       kr.event.pressed = true; */
 /*       break; */
 /*     default: break; */
 /*   } */
-/* }; */
-/* void SYM_reset(qk_tap_dance_state_t *state, void *user_data) { */
-/*   switch(td_state) { */
-/*     case SINGLE_TAP: */
-/*       clear_oneshot_layer_state(ONESHOT_PRESSED); */
-/*       tap_dance_active = false; */
-/*       break; */
-/*     case SINGLE_HOLD: */
-/*       layer_off(_NUM); */
-/*       break; */
-/*     case DOUBLE_HOLD: */
-/*       layer_off(_SYM); */
-/*       break; */
-/*     default: break; */
-/*   } */
+/*   process_dynamic_macro( action, &kr ); */
 /* } */
-/* void tap_dance_process_keycode(uint16_t keycode) { */
-/*   if (td_state == SINGLE_TAP && keycode != TD_SYM) { */
-/*     tap_dance_active = false; */
+
+/* void dynamicMacro2(qk_tap_dance_state_t *state, void *user_data) { */
+/*   td_state = cur_tapdance(state); */
+/*   keyrecord_t kr; */
+/*   uint16_t action; */
+
+/*   switch (td_state) { */
+/*     case SINGLE_HOLD: */
+/*       action = DYN_REC_START2; */
+/*       kr.event.pressed = false; */
+/*       break; */
+/*     case SINGLE_TAP: */
+/*       action = DYN_MACRO_PLAY2; */
+/*       kr.event.pressed = false; */
+/*       break; */
+/*     case DOUBLE_TAP: */
+/*       action = DYN_REC_STOP; */
+/*       kr.event.pressed = true; */
+/*       break; */
+/*     default: break; */
 /*   } */
+/*   process_dynamic_macro( action, &kr ); */
 /* } */
 
 /* qk_tap_dance_action_t tap_dance_actions[] = { */
-/*   [CACCCV_TD] = ACTION_TAP_DANCE_FN(CACCCV_finished) */
-/*   /1* [DOT_TD] = ACTION_TAP_DANCE_FN(dot_finished), *1/ */
-/*   /1* [SYM_TD] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, SYM_finished, SYM_reset), *1/ */
+/*   [DMACRO1_TD] = ACTION_TAP_DANCE_FN(dynamicMacro1), */
+/*   [DMACRO2_TD] = ACTION_TAP_DANCE_FN(dynamicMacro2) */
 /* }; */
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -229,10 +200,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       _______, KC_F1, KC_F2, KC_F3, KC_F4, KC_F5,
       KC_F6, KC_F7, KC_F8, KC_F9, KC_F10, KC_PSCR,
 
-      KC_CLCK, XXXXXXX, DM_REC1, DM_RSTP, DM_PLY1, XXXXXXX,
+      KC_CLCK, XXXXXXX, DM_REC1, DM_RSTP, DM_REC2, XXXXXXX,
       XXXXXXX, KC_F4, KC_F5, KC_F6, KC_F11, KC_SLCK,
 
-      _______, XXXXXXX, DM_REC2, DM_RSTP, DM_PLY2, XXXXXXX,
+      _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
       _______, _______, _______, _______,
       XXXXXXX, KC_F1, KC_F2, KC_F3, KC_F12, KC_PAUSE,
 
@@ -418,30 +389,18 @@ bool led_update_user(led_t led_state) {
 }
 
 // Track Macro Recording state
-void dynamic_macro_record_start_user(void) {
-  rgblight_set_layer_state(0, true);
-}
-void dynamic_macro_record_end_user(int8_t direction) {
-  rgblight_set_layer_state(0, false);
-}
+/* void dynamic_macro_record_start_user(void) { */
+/*   rgblight_set_layer_state(0, true); */
+/* } */
+/* void dynamic_macro_record_end_user(int8_t direction) { */
+/*   rgblight_set_layer_state(0, false); */
+/* } */
 // Blink when a macro is played back
-void dynamic_macro_play_user(int8_t direction) {
-  rgblight_set_layer_state(0, true);
-  wait_ms(1000);
-  rgblight_set_layer_state(0, false);
-}
+/* void dynamic_macro_play_user(int8_t direction) { */
+/*   rgblight_set_layer_state(0, true); */
+/*   wait_ms(1000); */
+/*   rgblight_set_layer_state(0, false); */
+/* } */
 
 #endif
 
-
-// Define map for swap hands (mirror sides)
-/* const keypos_t hand_swap_config[MATRIX_ROWS][MATRIX_COLS] = { */
-/*   {{0, 4}, {1, 4}, {2, 4}, {3, 4}, {4, 4}, {5, 4}, {6, 4}, {7, 4}}, */
-/*   {{0, 5}, {1, 5}, {2, 5}, {3, 5}, {4, 5}, {5, 5}, {6, 5}, {7, 5}}, */
-/*   {{0, 6}, {1, 6}, {2, 6}, {3, 6}, {4, 6}, {5, 6}, {6, 6}, {7, 6}}, */
-/*   {{0, 7}, {1, 7}, {2, 7}, {3, 7}, {4, 7}, {5, 7}, {6, 7}, {7, 7}}, */
-/*   {{0, 0}, {1, 0}, {2, 0}, {3, 0}, {4, 0}, {5, 0}, {6, 0}, {7, 0}}, */
-/*   {{0, 1}, {1, 1}, {2, 1}, {3, 1}, {4, 1}, {5, 1}, {6, 1}, {7, 1}}, */
-/*   {{0, 2}, {1, 2}, {2, 2}, {3, 2}, {4, 2}, {5, 2}, {6, 2}, {7, 2}}, */
-/*   {{0, 3}, {1, 3}, {2, 3}, {3, 3}, {4, 3}, {5, 3}, {6, 3}, {7, 3}} */
-/* }; */

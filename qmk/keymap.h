@@ -25,19 +25,18 @@ enum layer_names {
 
 // Upper Thumb keys
 #define MY_LT5 MO(_F)
-#define MY_LT6 MO(_M)
-#define MY_RT6 MO(_VIM)
+#define MY_LT6 DYN_MACRO_PLAY1
+#define MY_RT6 DYN_MACRO_PLAY2
 #define MY_RT5 MO(_F)
 
 // Outer Edge Keys
 #define MY_LOH KC_TAB
-#define MY_LOM LALT_T(KC_ESC)
+#define MY_LOM KC_ESC
 #define MY_LOL C(KC_LALT)
 
-#define MY_ROH KC_INS
+#define MY_ROH KC_DEL
 #define MY_ROM KC_BSPACE
-/* #define MY_ROM LCTL_T(KC_QUOTE) */
-#define MY_ROL C(KC_LALT)
+#define MY_ROL LCTL_T(KC_INS)
 
 // Alpha keys
 #define MY_A LGUI_T(KC_A)
@@ -51,7 +50,7 @@ enum layer_names {
 #define MY_I KC_I
 #define MY_O LGUI_T(KC_O)
 
-// Ideal Home Row Mods
+// Home Row Mods
 // Activating breaks combos (which are more useful)
 // Leaving in case qmk adds support in the future
 /* #define MY_R LALT_T(KC_R) */
@@ -59,7 +58,7 @@ enum layer_names {
 /* #define MY_E LCTL_T(KC_E) */
 /* #define MY_I LALT_T(KC_I) */
 
-#define MY_Z KC_Z
+#define MY_Z LALT_T(KC_Z)
 #define MY_X KC_X
 #define MY_C KC_C
 #define MY_D KC_D
@@ -68,7 +67,7 @@ enum layer_names {
 #define MY_H KC_H
 #define MY_COMMA KC_COMMA
 #define MY_DOT KC_DOT
-#define MY_SLASH LCTL_T(KC_SLASH)
+#define MY_SLASH LALT_T(KC_SLASH)
 
 #define MY_Q KC_Q
 #define MY_W KC_W
@@ -84,8 +83,10 @@ enum layer_names {
 
 /* // Tap Dance */
 /* enum { */
-/*   CACCCV_TD = 0, */
+/*   DMACRO1_TD = 0, */
+/*   DMACRO2_TD = 1, */
 /* }; */
 
-/* #define TD_CACCCV TD(CACCCV_TD) */
+/* #define TD_DMACRO1 TD(DMACRO1_TD) */
+/* #define TD_DMACRO2 TD(DMACRO2_TD) */
 

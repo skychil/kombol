@@ -21,7 +21,7 @@
 // Prevent short hold periods being interpreted as individual taps when typing quickly.
 #define PERMISSIVE_HOLD
 
-// Don't allow dyn macro calls in dyn macros
+// Don't allow macro calls in macros
 #define DYNAMIC_MACRO_NO_NESTING
 
 // RGB Underglow
@@ -56,13 +56,13 @@
 // The default is 50. This makes the mouse ~3 times faster and more accurate
 // #undef to override default settings
 #undef MOUSEKEY_INTERVAL
-#define MOUSEKEY_INTERVAL 16
+#define MOUSEKEY_INTERVAL 21
 
 // The default is 20. Since we made the mouse about 3 times faster with the previous setting,
 // give it more time to accelerate to max speed to retain precise control over short distances.
 #undef MOUSEKEY_TIME_TO_MAX
-#define MOUSEKEY_TIME_TO_MAX 40
+#define MOUSEKEY_TIME_TO_MAX 37
 
 // The default is 300. Make this as low as possible while keeping the cursor responsive
 #undef MOUSEKEY_DELAY
-#define MOUSEKEY_DELAY 100
+#define MOUSEKEY_DELAY 120
