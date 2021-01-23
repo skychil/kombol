@@ -15,12 +15,12 @@ COMB(percent, KC_PERC, MY_B, MY_G)
 COMB(mins, KC_MINS, MY_R, MY_S)
 COMB(equal, KC_EQUAL, MY_S, MY_T)
 COMB(pasteselection, S(KC_INS), MY_R, MY_T)
-COMB(tilde, KC_TILDE, MY_T, MY_G)
+COMB(exclaim, KC_EXCLAIM, MY_T, MY_G)
 
 COMB(bothgrave, KC_NO, MY_R, MY_X)
 COMB(grave, KC_GRAVE, MY_S, MY_C)
 COMB(unds, KC_UNDS, MY_S, MY_D)
-COMB(exclaim, KC_EXCLAIM, MY_T, MY_D)
+COMB(tilde, KC_TILDE, MY_T, MY_D)
 
 COMB(lcbr, KC_LCBR, MY_X, MY_C)
 COMB(rcbr, KC_RCBR, MY_C, MY_D)
@@ -28,25 +28,24 @@ COMB(bothcbr, KC_NO, MY_X, MY_D)
 
 // Right
 
-COMB(home, KC_HOME, MY_L, MY_U)
-COMB(end, KC_END, MY_U, MY_Y)
+COMB(lparen, KC_LPRN, MY_L, MY_U)
+COMB(rparen, KC_RPRN, MY_U, MY_Y)
 COMB(bothparen, KC_NO, MY_L, MY_Y)
 
 COMB(circ, KC_CIRC, MY_J, MY_M)
 COMB(ampr, KC_AMPR, MY_L, MY_N)
-COMB(astr, KC_ASTR, MY_N, MY_U)
-COMB(lparen, KC_LPRN, MY_U, MY_E)
-COMB(rparen, KC_RPRN, MY_Y, MY_I)
+COMB(pipe, KC_PIPE, MY_N, MY_U)
+COMB(astr, KC_ASTR, MY_U, MY_E)
+COMB(bslash, KC_BSLASH, MY_Y, MY_I)
 
-COMB(pipe, KC_PIPE, MY_M, MY_N)
+COMB(ques, KC_QUES, MY_M, MY_N)
 COMB(dquo, KC_DQUO, MY_N, MY_E)
 COMB(quote, KC_QUOTE, MY_E, MY_I)
 COMB(dotspaceshift, KC_NO, MY_N, MY_I)
 
-COMB(bslash, KC_BSLASH, MY_N, MY_H)
+COMB(bothdquo, KC_NO, MY_N, MY_H)
 COMB(colon, KC_COLON, MY_H, MY_E)
-COMB(bothdquo, KC_NO, MY_E, MY_COMMA)
-COMB(bothquote, KC_NO, MY_I, MY_DOT)
+COMB(bothquote, KC_NO, MY_E, MY_COMMA)
 
 COMB(labr, KC_LABK, MY_H, MY_COMMA)
 COMB(rabr, KC_RABK, MY_COMMA, MY_DOT)

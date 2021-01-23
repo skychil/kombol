@@ -170,7 +170,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       ),
   [_NAV] = LAYOUT(
       _______, _______, _______, _______, _______, _______,
-      XXXXXXX, KC_PGDN, KC_UP, KC_PGUP, XXXXXXX, _______,
+      XXXXXXX, KC_HOME, KC_UP, KC_END, XXXXXXX, _______,
 
       _______, _______, _______, _______, _______, _______,
       XXXXXXX, KC_LEFT, KC_DOWN, KC_RIGHT, XXXXXXX, _______,
@@ -201,11 +201,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       KC_F6, KC_F7, KC_F8, KC_F9, KC_F10, KC_PSCR,
 
       KC_CLCK, XXXXXXX, DM_REC1, DM_RSTP, DM_REC2, XXXXXXX,
-      XXXXXXX, KC_F4, KC_F5, KC_F6, KC_F11, KC_SLCK,
+      XXXXXXX, KC_F10, KC_F11, KC_F12, XXXXXXX, KC_SLCK,
 
-      _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+      _______, _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
       _______, _______, _______, _______,
-      XXXXXXX, KC_F1, KC_F2, KC_F3, KC_F12, KC_PAUSE,
+      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, KC_PAUSE,
 
       _______, _______, _______, _______, _______,
       _______, _______, _______, _______, _______
