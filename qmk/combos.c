@@ -56,12 +56,12 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
         tap_code(KC_LEFT); // Cursor in between
       }
       break;
-    case C_dotspaceshift:
-      if (pressed) {
-        SEND_STRING(". ");
-        set_oneshot_mods(MOD_LSFT | get_oneshot_mods());
-      }
-      break;
+    /* case C_dotspaceshift: */
+    /*   if (pressed) { */
+    /*     SEND_STRING(". "); */
+    /*     set_oneshot_mods(MOD_LSFT | get_oneshot_mods()); */
+    /*   } */
+    /*   break; */
 
     /* case C_the: if (pressed) shift_send_string("the", "The"); break; */
 

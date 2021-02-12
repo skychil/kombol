@@ -6,11 +6,11 @@
  *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 #include QMK_KEYBOARD_H
 
@@ -19,7 +19,6 @@
 enum custom_keycodes {
   VIM_C = SAFE_RANGE,
   VIM_D,
-  VIM_S,
   VIM_V,
 };
 
@@ -34,7 +33,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       unregister_code(KC_LSFT);
       tap_code(KC_DEL);
       break;
-    case VIM_S:
     case VIM_D:
       if (!record->event.pressed) break;
       tap_code(KC_HOME);
@@ -183,29 +181,43 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       _______, _______, _______, _______, _______
       ),
   [_NUM] = LAYOUT(
-      _______, KC_F14, KC_F15, KC_F16, KC_F17, KC_F18, // Xf86Launch 5-9
+      _______, _______, _______, _______, _______, _______,
       XXXXXXX, KC_7, KC_8, KC_9, XXXXXXX, _______,
 
-      _______, G(KC_1), G(KC_2), G(KC_3), G(KC_4), XXXXXXX,
+      _______, _______, _______, _______, _______, _______,
       KC_PLUS, KC_4, KC_5, KC_6, KC_0, _______,
 
-      _______, G(KC_8), G(KC_7), G(KC_6), G(KC_5), XXXXXXX,
+      _______, _______, _______, _______, _______, _______,
       _______, _______, _______, _______,
       KC_MINS, KC_1, KC_2, KC_3, KC_DOT, _______,
 
       _______, _______, _______, _______, _______,
       _______, _______, _______, _______, _______
       ),
-  [_F] = LAYOUT(
-      _______, KC_F1, KC_F2, KC_F3, KC_F4, KC_F5,
-      KC_F6, KC_F7, KC_F8, KC_F9, KC_F10, KC_PSCR,
+  [_WM] = LAYOUT(
+      _______, KC_F14, KC_F15, KC_F16, KC_F17, KC_F18, // Xf86Launch5-9 (Frequent App Lauchers)
+      _______, _______, _______, _______, _______, _______,
 
-      KC_CLCK, XXXXXXX, DM_REC1, DM_RSTP, DM_REC2, XXXXXXX,
-      XXXXXXX, KC_F10, KC_F11, KC_F12, XXXXXXX, KC_SLCK,
+      _______, G(KC_1), G(KC_2), G(KC_3), G(KC_4), XXXXXXX,
+      _______, _______, _______, _______, _______, _______,
+
+      XXXXXXX, XXXXXXX, XXXXXXX, VIM_C, VIM_D, VIM_V,
+      _______, _______, _______, _______,
+      _______, _______, _______, _______, _______, _______,
+
+      _______, _______, _______, _______, _______,
+      _______, _______, _______, _______, _______
+      ),
+  [_F] = LAYOUT(
+      _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_PSCR,
+
+      KC_CLCK, KC_F1, KC_F2, KC_F3, KC_F4, KC_F5,
+      KC_F6, KC_F7, KC_F8, KC_F9, KC_F10, KC_SLCK,
 
       _______, _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
       _______, _______, _______, _______,
-      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, KC_PAUSE,
+      XXXXXXX, KC_F11, KC_F12, XXXXXXX, _______, KC_PAUSE,
 
       _______, _______, _______, _______, _______,
       _______, _______, _______, _______, _______
@@ -224,28 +236,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       _______, _______, _______, _______, _______,
       _______, _______, _______, _______, _______
       ),
-  [_VIM] = LAYOUT(
-      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-
-      XXXXXXX, XXXXXXX, XXXXXXX, VIM_S, XXXXXXX, XXXXXXX,
-      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-
-      XXXXXXX, XXXXXXX, XXXXXXX, VIM_C, VIM_D, VIM_V,
-      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-
-      _______, _______, _______, _______, _______,
-      _______, _______, _______, _______, _______
-      )
 };
 
-/* uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) { */
-/*   switch (keycode) { */
-/*     case TD_CACCCV: return 150; */
-/*     default: return TAPPING_TERM; */
-/*   } */
-/* } */
 
 #ifdef ENCODER_ENABLE
 void encoder_update_user(uint8_t index, bool clockwise) {
@@ -265,21 +257,14 @@ void encoder_update_user(uint8_t index, bool clockwise) {
         tap_code(KC_VOLD);
       }
     } else if (IS_LAYER_ON(_NUM)) {
-      // Undo / Redo (Ctrl Shift Z)
+      // Undo (Ctrl Z) / Redo (Ctrl Shift Z)
       if (clockwise) {
         tap_code16(C(S(KC_Z)));
       } else {
         tap_code16(C(KC_Z));
       }
-    } else if (IS_LAYER_ON(_F)) {
-      // Undo / Redo (Keycodes)
-      if (clockwise) {
-        tap_code(KC_UNDO);
-      } else {
-        tap_code(KC_AGAIN);
-      }
     } else {
-      // Undo / Redo (Ctrl Y)
+      // Undo (Ctrl Z) / Redo (Ctrl Y)
       if (clockwise) {
         tap_code16(C(KC_Y));
       } else {
@@ -289,7 +274,7 @@ void encoder_update_user(uint8_t index, bool clockwise) {
   }
   else if (index == 1) { // Right
     // Inverting 'clockwise' to be able to flash both sides with the same file
-    if (IS_LAYER_ON(_NUM)) {
+    if (IS_LAYER_ON(_WM)) {
       // Zoom
       if (clockwise) {
         tap_code16(C(KC_EQUAL));
@@ -347,19 +332,14 @@ const rgblight_segment_t PROGMEM my_capslock_layer[] = RGBLIGHT_LAYER_SEGMENTS(
   {10, 10, HSV_ORANGE}
 );
 const rgblight_segment_t PROGMEM my_F_layer[] = RGBLIGHT_LAYER_SEGMENTS(
-  {0, 6, HSV_CHARTREUSE},
-  {9, 2, HSV_CHARTREUSE},
-  {14, 6, HSV_CHARTREUSE}
+  {0, 6, HSV_CYAN},
+  {9, 2, HSV_CYAN},
+  {14, 6, HSV_CYAN}
 );
 const rgblight_segment_t PROGMEM my_M_layer[] = RGBLIGHT_LAYER_SEGMENTS(
   {0, 6, HSV_PURPLE},
   {9, 2, HSV_PURPLE},
   {14, 6, HSV_PURPLE}
-);
-const rgblight_segment_t PROGMEM my_VIM_layer[] = RGBLIGHT_LAYER_SEGMENTS(
-  {0, 6, HSV_CYAN},
-  {9, 2, HSV_CYAN},
-  {14, 6, HSV_CYAN}
 );
 
 // Define up to 8 layers. Later layers take precedence.
@@ -367,8 +347,7 @@ const rgblight_segment_t* const PROGMEM my_rgb_layers[] = RGBLIGHT_LAYERS_LIST(
     my_macrorec_layer, // 0
     my_capslock_layer,
     my_F_layer,
-    my_M_layer,
-    my_VIM_layer
+    my_M_layer
     );
 
 void keyboard_post_init_user(void) {
@@ -378,7 +357,6 @@ void keyboard_post_init_user(void) {
 layer_state_t layer_state_set_user(layer_state_t state) {
   rgblight_set_layer_state(2, layer_state_cmp(state, _F));
   rgblight_set_layer_state(3, layer_state_cmp(state, _M));
-  rgblight_set_layer_state(4, layer_state_cmp(state, _VIM));
   return state;
 }
 
@@ -388,7 +366,7 @@ bool led_update_user(led_t led_state) {
   return true;
 }
 
-// Track Macro Recording state
+// Track Macro Recording state, this didn't work due to qmk bug
 /* void dynamic_macro_record_start_user(void) { */
 /*   rgblight_set_layer_state(0, true); */
 /* } */
@@ -403,4 +381,3 @@ bool led_update_user(led_t led_state) {
 /* } */
 
 #endif
-

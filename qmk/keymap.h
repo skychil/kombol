@@ -6,6 +6,7 @@ enum layer_names {
   _COLEMAK_DHM = 0,
   _NAV,
   _NUM,
+  _WM,
   _F,
   _M,
   _VIM
@@ -15,8 +16,8 @@ enum layer_names {
 #define MY_LE RGB_TOG
 #define MY_LT1 KC_LCTL
 #define MY_LT2 LSFT_T(KC_SPACE)
-#define MY_LT3 MO(_NUM)
-#define MY_LT4 MO(_VIM)
+#define MY_LT3 MO(_WM)
+#define MY_LT4 MO(_F)
 #define MY_RT4 MO(_M)
 #define MY_RT3 MO(_NUM)
 #define MY_RT2 RSFT_T(KC_ENTER)
@@ -24,10 +25,10 @@ enum layer_names {
 #define MY_RE KC_MUTE
 
 // Upper Thumb keys
-#define MY_LT5 MO(_F)
-#define MY_LT6 DYN_MACRO_PLAY1
-#define MY_RT6 DYN_MACRO_PLAY2
-#define MY_RT5 MO(_F)
+#define MY_LT5 DYN_MACRO_PLAY1
+#define MY_LT6 DYN_MACRO_PLAY2
+#define MY_RT6 DYN_REC_START1
+#define MY_RT5 DYN_REC_STOP
 
 // Outer Edge Keys
 #define MY_LOH KC_TAB
