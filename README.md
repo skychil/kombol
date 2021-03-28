@@ -107,6 +107,10 @@ Remember: Optimal Layout is specific to an individual's biomechanics, keyboard h
 <details>
   <summary>Hardware</summary>
 
+  ![Right Side](rightside.jpg?raw=true "Right Side")
+  ![Left Side](leftside.jpg?raw=true "Left Side")
+  ![Back](back.jpg?raw=true "Back")
+
   Price | Part
   ----- | ----
   $34 | Kyria Rev 1.2 PCB kit w/ LEDs
