@@ -180,6 +180,6 @@ Custom keyboards are a fun hobby, but a large investment of time and money. It t
 
 In time vendors will hopefully make this process cheaper and easier.
 
-I created a lovely keyboard, but it's not perfect. I would prefer one that was: full wireless, lighter weight, lower profile, had easily adjustable tent & tilt, matching wrist rests, and a number row. Something like a cross between a Kyria/Elora and a GergoPlex Heavy.
+I created a lovely keyboard, but it's not perfect. I would prefer one that was: full wireless, lighter weight, and lower profile, and had easily adjustable tent & tilt, matching wrist rests, and a number row. Something like a cross between a Kyria/Elora and a GergoPlex Heavy.
 
 </details>
