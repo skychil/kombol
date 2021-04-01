@@ -35,7 +35,7 @@ Remember: Optimal Layout is specific to an individual's biomechanics, keyboard h
 * Moving ' and " to combos frees up a great key for backspace
 * Symbols are typically pressed and released, which is ideal for combos
   * Held keys like arrow keys are tiring as combos because they require you to hold two keys
-* Double symbols like <|>, "|" make great combos
+* Double symbols like <>, "" make great combos
   * A left arrow is added to position the cursor in between
   * They work in every application and website
 * Having all symbols on the base layer and combos is easy to remember
