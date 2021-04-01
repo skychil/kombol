@@ -1,7 +1,7 @@
 # The Kombol Layout 1.0
-A combo-based layout for Ergonomic Keyboards, implemented in QMK.
+A combo-based layout for Ergonomic Mechanical Keyboards, implemented in QMK.
 
-![SkyChil_Layout](https://user-images.githubusercontent.com/72839499/109599042-878b8080-7ae8-11eb-8c5c-33f68d6a07be.png)
+![Kombol_Layout](https://user-images.githubusercontent.com/72839499/109599042-878b8080-7ae8-11eb-8c5c-33f68d6a07be.png)
 [View on keyboard-layout-editor.com](http://www.keyboard-layout-editor.com/#/gists/c77544667b70d4c1fbf701af219d2cd7)
 
 
