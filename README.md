@@ -191,11 +191,12 @@ A better keyboard would be:
  * Lighter weight
  * More portable
  * More durable
-and have
+
+and have:
  * Easily adjustable tent & tilt
  * Integrated wrist rests
 
 Something like a cross between a Kyria/Elora and a GergoPlex Heavy.
 
-The real innovation here is in the layout I created. I love using it, and I share it here with the hope it will inspire you when you design your own layout.
+The real innovation is in the layout I created. I love using it, and I share it here with the hope it will inspire you when you design your own layout.
 </details>
