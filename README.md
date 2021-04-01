@@ -39,7 +39,7 @@ Remember: Optimal Layout is specific to an individual's biomechanics, keyboard h
   * A left arrow is added to position the cursor in between
   * They work in every application and website
 * Having all symbols on the base layer and combos is easy to remember
-  * Better than some on the base layer, some on the shift layer, and some on a number layer
+  * Compare with the common practice of: some on the base layer, some on the shift layer, and some on a "symbols" layer
 
 <details>
 <summary>QMK Combo Limitations</summary>
