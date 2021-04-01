@@ -68,7 +68,7 @@ Remember: Optimal Layout is specific to an individual's biomechanics, keyboard h
      * The numpad tested fastest and most usable, which I also did not expect
   1. F keys on the top row, and F keys on the numpad
      * F keys on the home row tested best, because of the frequency of pressing F1-F5
-  1. All 4 "Home Row Mods"
+  1. [Home Row Mods](https://precondition.github.io/home-row-mods#using-mod-taps-in-combos) for all mods
      * Having mods on the index fingers tested poorly because they locked out 6 alpha keys per side
      * Shift on home thumb keys tested better, which I was not expecting
      * Home row mods tested poorly with Colemak DHm because the high speed rolls caused accidental triggering
@@ -107,10 +107,13 @@ Remember: Optimal Layout is specific to an individual's biomechanics, keyboard h
 <details>
   <summary>Hardware</summary>
  
-  
-  ![Right Side](rightside.jpg?raw=true "Right Side")
-  ![Left Side](leftside.jpg?raw=true "Left Side")
-  ![Back](back.jpg?raw=true "Back")
+  ![rightside](https://user-images.githubusercontent.com/72839499/113330394-ab5f0380-92ec-11eb-9613-ab4bc35da60b.jpg)
+ 
+  ![leftside](https://user-images.githubusercontent.com/72839499/113330256-84083680-92ec-11eb-991e-735980d54327.jpg)
+
+  ![back](https://user-images.githubusercontent.com/72839499/113330419-b3b73e80-92ec-11eb-8ad8-32c32e08f94b.jpg)
+
+
 
   Price | Part
   ----- | ----
