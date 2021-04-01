@@ -1,5 +1,5 @@
-# The Kombol Layout
-A combo-based layout for Kyria Split Keyboards
+# The Kombol Layout 1.0
+A combo-based layout for Ergonomic Keyboards
 
 ![SkyChil_Layout](https://user-images.githubusercontent.com/72839499/109599042-878b8080-7ae8-11eb-8c5c-33f68d6a07be.png)
 [View on keyboard-layout-editor.com](http://www.keyboard-layout-editor.com/#/gists/c77544667b70d4c1fbf701af219d2cd7)
@@ -106,7 +106,8 @@ Remember: Optimal Layout is specific to an individual's biomechanics, keyboard h
 
 <details>
   <summary>Hardware</summary>
-
+ 
+  
   ![Right Side](rightside.jpg?raw=true "Right Side")
   ![Left Side](leftside.jpg?raw=true "Left Side")
   ![Back](back.jpg?raw=true "Back")
@@ -134,11 +135,10 @@ Total: $309
 1. Kyria thumb arc position and radius
 1. Split
 1. Tilting and tenting
-1. Feel of pressing a single 62g Zilents
-1. Lower profile thumb keys
-1. DSA keycaps
+1. Feel of pressing a single 62g Zilent Switch
+1. Lower profile thumb keycaps
+1. DSA keycaps for combos
 1. Rotary Encoders
-1. Rainbow RGB (unexpected)
 
 ### Drawbacks
 1. Plate case required heavy modification (see below)
@@ -185,17 +185,17 @@ Custom keyboards are a fun hobby, but a large investment of time and money. It t
 In time vendors will hopefully make this process cheaper and easier.
 
 I created wonderful hardware, but it's not perfect.
-I would prefer a keyboard that was:
+A better keyboard would be:
  * Full wireless
  * Lower profile
  * Lighter weight
  * More portable
  * More durable
-and had
+and have
  * Easily adjustable tent & tilt
  * Integrated wrist rests
 
 Something like a cross between a Kyria/Elora and a GergoPlex Heavy.
 
-The real innovation is in the layout I created. I love using it, and I share it here with the hope it will inspire you when you design your own layout.
+The real innovation here is in the layout I created. I love using it, and I share it here with the hope it will inspire you when you design your own layout.
 </details>
