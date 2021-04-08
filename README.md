@@ -42,6 +42,23 @@ Remember: Optimal Layout is specific to an individual's biomechanics, keyboard h
   * Compare with the common practice of: some on the base layer, some on the shift layer, and some on a "symbols" layer
 
 <details>
+<summary>1 Finger vs 2 Finger Combos</summary>
+
+  Vertical Combos (@#$%) and Index Finger Horizontal Combos (! and ?) use a single finger to activate
+  * This finger movement is fast and ergonomic because it is close to the home row position
+  * Accidental activation is low because of the keys normally use the same finger
+  * The mapping trys to put my most common symbols on the easiest combos (upper row, avoiding the pinky and ring fingers)
+
+  All other Horizontal Combos and Diagonal Combos use two fingers to activate
+  * The ergonomics of these combos is dependent on the shape you hand makes in pressing them
+  * Accidental activation of these combos is possible at higher typing speeds
+    * Adjusting COMBO_TERM helps minimize the vast majority of accidental activations
+    * If accidental activation still occurs, you may need to take certain combos out or type text slightly slower
+    * My testing revealed the increased speed in programming with symbols was worth the slight slowdown of text typing needed to avoid the remaining accidental triggers
+
+</details>
+
+<details>
 <summary>QMK Combo Limitations</summary>
 
   Combos are amazing, but they are half baked in QMK.
