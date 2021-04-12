@@ -47,18 +47,17 @@ Remember: Optimal Layout is specific to an individual's biomechanics, keyboard h
 <summary>1 Finger vs 2 Finger Combos</summary>
 
   Vertical Combos (like @#$%) and Horizontal Index Finger Combos (!?) use 1 finger to activate
-  * You can think of the combo as another key in the space between the keys
+  * You can think of these combos as another key in the space between two keys
   * These combos are fast and ergonomic because they are close to the home row
   * Accidental activation of 1 finger combos is rare
 
   All other Combos use 2 fingers to activate
-  * The ergonomics of 2 finger combos depends on your hand shape when pressing them
-    * Put your most frequent symbols in the most comfortable/fast combos
+  * Press both keys together, like stenography/plover
   * Accidental activation of 2 finger combos may occur at high typing speeds
     * Reducing COMBO_TERM helps to minimize accidental activations
       * Set COMBO_TERM as low as possible while still allowing consistent activation of combos
-      * A per combo COMBO_TERM setting would be ideal, but QMK does not yet support it
-      * If accidental activation still occurs, remove the problem combos from your layout
+      * A per-combo COMBO_TERM setting would be ideal, but QMK does not yet support it
+      * If accidental activation still occurs, remove those combos from your layout
     
 </details>
 
@@ -74,6 +73,9 @@ Remember: Optimal Layout is specific to an individual's biomechanics, keyboard h
   * Combos didn't work with home row mods, record macro keycodes, or tap dance keys, and this was not well documented
     * [A possible workaround from precondition](https://precondition.github.io/home-row-mods#using-mod-taps-in-combos)
     * Once QMK allows home row mods and combos on the same key, I will likely update my mod locations
+
+  * There is only one global COMBO_TERM setting
+    * A specific COMBO_TERM for each combo would be ideal
 
 </details>
 
