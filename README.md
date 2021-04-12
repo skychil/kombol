@@ -20,6 +20,8 @@ A combo-based layout for Ergonomic Mechanical Keyboards, implemented in QMK.
 ### Optimal Use Case
 * Software Development in Vim using a tiling window manager
 * Large hands with strong middle and ring fingers
+* Preference for same hand mod/layer activation
+  * The alternative is opposite hand activation like [miryoku](https://github.com/manna-harbour/miryoku)
 
 ### Design Principles
 Keep it simple.
@@ -44,18 +46,20 @@ Remember: Optimal Layout is specific to an individual's biomechanics, keyboard h
 <details>
 <summary>1 Finger vs 2 Finger Combos</summary>
 
-  Vertical Combos (@#$%) and Index Finger Horizontal Combos (! and ?) use a single finger to activate
-  * This finger movement is fast and ergonomic because it is close to the home row position
-  * Accidental activation is low because these keys normally use the same finger
-  * The mapping trys to put my most common symbols on the easiest combos (upper row, avoiding the pinky and ring fingers)
+  Vertical Combos (like @#$%) and Horizontal Index Finger Combos (!?) use 1 finger to activate
+  * You can think of the combo as another key in the space between the keys
+  * These combos are fast and ergonomic because they are close to the home row
+  * Accidental activation of 1 finger combos is rare
 
-  All other Horizontal Combos and Diagonal Combos use two fingers to activate
-  * The ergonomics of these combos is dependent on the shape your hand makes in pressing them
-  * Accidental activation of these combos is possible at higher typing speeds
-    * Adjusting COMBO_TERM helps minimize the vast majority of accidental activations
-    * If accidental activation still occurs, you may need to take certain combos out or type text slightly slower
-    * My testing revealed the increased speed in programming symbols was worth the slowdown of text typing needed to avoid the remaining accidental activations
-
+  All other Combos use 2 fingers to activate
+  * The ergonomics of 2 finger combos depends on your hand shape when pressing them
+    * Put your most frequent symbols in the most comfortable/fast combos
+  * Accidental activation of 2 finger combos may occur at high typing speeds
+    * Reducing COMBO_TERM helps to minimize accidental activations
+      * Set COMBO_TERM as low as possible while still allowing consistent activation of combos
+      * A per combo COMBO_TERM setting would be ideal, but QMK does not yet support it
+      * If accidental activation still occurs, remove the problem combos from your layout
+    
 </details>
 
 <details>
@@ -96,8 +100,8 @@ Remember: Optimal Layout is specific to an individual's biomechanics, keyboard h
   1. Other combo locations
      * I tried over 100 combo pairs and only used the most ergonomic
      * The runners up are in the layout image as 'ghosted' keys, and can be used if needed
-  1. Opposite hand layer activation (like miryoku)
-     * Single hand layer activation tested faster for the the way I think and type
+  1. Opposite hand mod/layer activation (like miryoku)
+     * Same hand mod/layer activation tested faster and more natural for my brain
   1. Tap Dances (like CCCACV and dotSpaceShift)
      * Testing revealed them to be too slow compared to combos
   1. Common words as plover combos across both hands
