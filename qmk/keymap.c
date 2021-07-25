@@ -240,7 +240,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 
 #ifdef ENCODER_ENABLE
-void encoder_update_user(uint8_t index, bool clockwise) {
+bool encoder_update_user(uint8_t index, bool clockwise) {
   if (index == 0) { // Left
     if (IS_LAYER_ON(_NAV)) {
       // Tab Forward / Back
@@ -297,11 +297,12 @@ void encoder_update_user(uint8_t index, bool clockwise) {
       }
     }
   }
+  return true;
 }
 #endif
 
 
-#ifdef RGBLIGHT_ENABLE
+#ifdef RGBLIGHT_LAYERS
 // HSV_WHITE 0, 0, 255
 // HSV_RED 0, 255, 255
 // HSV_CORAL 11, 176, 255

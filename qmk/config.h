@@ -34,6 +34,8 @@
   #define RGBLIGHT_LED_MAP {0,1,2,9,8,7,4,3,5,6,19,18,17,10,11,12,15,16,14,13}
   // Only include animations you're using
   #define RGBLIGHT_EFFECT_RAINBOW_SWIRL
+  // Set deefault mode when flashing the eprom
+  #define RGBLIGHT_DEFAULT_MODE RGBLIGHT_MODE_RAINBOW_SWIRL
   // Allow underglow to change with active layer
   #define RGBLIGHT_LAYERS
 #endif
@@ -43,11 +45,6 @@
 
 // Determine left / right by which file is flashed.
 /* #define EE_HANDS */
-
-// Using an Elite C rev3 on the slave side
-#define SPLIT_USB_DETECT
-#define NO_USB_STARTUP_CHECK
-
 
 // Key Mouse settings
 
