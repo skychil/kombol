@@ -100,7 +100,8 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
 
     case C_mylastname: if (pressed) shift_send_string(MY_LASTNAME_LOWERCASE, MY_LASTNAME); break;
     case C_myemail: if (pressed) shift_send_string(MY_EMAIL, MY_EMAIL_2); break;
-
+    case C_myusername: if (pressed) shift_send_string(MY_USERNAME, MY_WORKEMAIL); break;
+    case C_mycompany: if (pressed) shift_send_string(MY_COMPANYDOMAIN, MY_COMPANY); break;
 
     default:
       break;

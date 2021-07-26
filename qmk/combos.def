@@ -54,7 +54,9 @@ COMB(bothangle, KC_NO, MY_H, MY_DOT)
 // Both Hands
 
 COMB(mylastname, KC_NO, MY_C, MY_H)
-COMB(myemail, KC_NO, MY_S, MY_DOT)
+COMB(myemail, KC_NO, MY_S, MY_COMMA)
+COMB(myusername, KC_NO, MY_S, MY_DOT)
+COMB(mycompany, KC_NO, MY_R, MY_DOT)
 
 
 // Failed Plover Experiment
