@@ -8,18 +8,20 @@ COMB(bothbrc, KC_NO, MY_W, MY_P)
 
 COMB(at, KC_AT, MY_W, MY_R)
 COMB(hash, KC_HASH, MY_F, MY_S)
-COMB(plus, KC_PLUS, MY_F, MY_T)
 COMB(dollar, KC_DLR, MY_P, MY_T)
 COMB(percent, KC_PERC, MY_B, MY_G)
 
+COMB(exclaim, KC_EXCLAIM, MY_F, MY_T)
+
 COMB(mins, KC_MINS, MY_R, MY_S)
 COMB(equal, KC_EQUAL, MY_S, MY_T)
+COMB(plus, KC_PLUS, MY_T, MY_G)
 COMB(pasteselection, S(KC_INS), MY_R, MY_T)
-COMB(exclaim, KC_EXCLAIM, MY_T, MY_G)
+
+COMB(unds, KC_UNDS, MY_S, MY_D)
 
 COMB(bothgrave, KC_NO, MY_R, MY_X)
 COMB(grave, KC_GRAVE, MY_S, MY_C)
-COMB(unds, KC_UNDS, MY_S, MY_D)
 COMB(tilde, KC_TILDE, MY_T, MY_D)
 
 COMB(lcbr, KC_LCBR, MY_X, MY_C)
@@ -34,17 +36,19 @@ COMB(bothparen, KC_NO, MY_L, MY_Y)
 
 COMB(circ, KC_CIRC, MY_J, MY_M)
 COMB(ampr, KC_AMPR, MY_L, MY_N)
-COMB(pipe, KC_PIPE, MY_N, MY_U)
 COMB(astr, KC_ASTR, MY_U, MY_E)
 COMB(bslash, KC_BSLASH, MY_Y, MY_I)
 
-COMB(ques, KC_QUES, MY_M, MY_N)
+COMB(ques, KC_QUES, MY_N, MY_U)
+
+COMB(pipe, KC_PIPE, MY_M, MY_N)
 COMB(dquo, KC_DQUO, MY_N, MY_E)
 COMB(quote, KC_QUOTE, MY_E, MY_I)
 // COMB(dotspaceshift, KC_NO, MY_N, MY_I)
 
-COMB(bothdquo, KC_NO, MY_N, MY_H)
 COMB(colon, KC_COLON, MY_H, MY_E)
+
+COMB(bothdquo, KC_NO, MY_N, MY_H)
 COMB(bothquote, KC_NO, MY_E, MY_COMMA)
 
 COMB(labr, KC_LABK, MY_H, MY_COMMA)
@@ -53,10 +57,11 @@ COMB(bothangle, KC_NO, MY_H, MY_DOT)
 
 // Both Hands
 
-COMB(mylastname, KC_NO, MY_C, MY_H)
+COMB(mylastname, KC_NO, MY_C, MY_COMMA)
 COMB(myemail, KC_NO, MY_S, MY_COMMA)
 COMB(myusername, KC_NO, MY_S, MY_DOT)
 COMB(mycompany, KC_NO, MY_R, MY_DOT)
+COMB(myplover, KC_NO, MY_X, MY_DOT)
 
 
 // Failed Plover Experiment

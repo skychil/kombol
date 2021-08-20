@@ -102,6 +102,7 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
     case C_myemail: if (pressed) shift_send_string(MY_EMAIL, MY_EMAIL_2); break;
     case C_myusername: if (pressed) shift_send_string(MY_USERNAME, MY_WORKEMAIL); break;
     case C_mycompany: if (pressed) shift_send_string(MY_COMPANYDOMAIN, MY_COMPANY); break;
+    case C_myplover: if (pressed) shift_send_string(MY_PLOVER, MY_PLOVER); break;
 
     default:
       break;

@@ -33,13 +33,22 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       unregister_code(KC_LSFT);
       tap_code(KC_DEL);
       break;
+    /* Duplicate */
     case VIM_D:
       if (!record->event.pressed) break;
       tap_code(KC_HOME);
       register_code(KC_LSFT);
       tap_code(KC_END);
       unregister_code(KC_LSFT);
-      tap_code(KC_DEL);
+      register_code(KC_LCTL);
+      tap_code(KC_C);
+      unregister_code(KC_LCTL);
+      tap_code(KC_RIGHT);
+
+      tap_code(KC_ENTER);
+      register_code(KC_LCTL);
+      tap_code(KC_V);
+      unregister_code(KC_LCTL);
       break;
     case VIM_V:
       if (!record->event.pressed) break;
@@ -170,8 +179,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       _______, _______, _______, _______, _______, _______,
       XXXXXXX, KC_HOME, KC_UP, KC_END, XXXXXXX, _______,
 
-      _______, _______, _______, _______, _______, _______,
-      XXXXXXX, KC_LEFT, KC_DOWN, KC_RIGHT, XXXXXXX, _______,
+      KC_CLCK, _______, _______, _______, _______, _______,
+      XXXXXXX, KC_LEFT, KC_DOWN, KC_RIGHT, KC_PSCR, _______,
 
       _______, _______, _______, _______, _______, _______,
       _______, _______, _______, _______,
@@ -182,14 +191,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       ),
   [_NUM] = LAYOUT(
       _______, _______, _______, _______, _______, _______,
-      XXXXXXX, KC_7, KC_8, KC_9, XXXXXXX, _______,
+      KC_PLUS, KC_7, KC_8, KC_9, _______, _______,
 
       _______, _______, _______, _______, _______, _______,
-      KC_PLUS, KC_4, KC_5, KC_6, KC_0, _______,
+      KC_DOT, KC_4, KC_5, KC_6, KC_0, _______,
 
       _______, _______, _______, _______, _______, _______,
       _______, _______, _______, _______,
-      KC_MINS, KC_1, KC_2, KC_3, KC_DOT, _______,
+      KC_MINS, KC_1, KC_2, KC_3, _______, _______,
 
       _______, _______, _______, _______, _______,
       _______, _______, _______, _______, _______
@@ -210,14 +219,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       ),
   [_F] = LAYOUT(
       _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_PSCR,
+      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,
 
-      KC_CLCK, KC_F1, KC_F2, KC_F3, KC_F4, KC_F5,
-      KC_F6, KC_F7, KC_F8, KC_F9, KC_F10, KC_SLCK,
+      _______, KC_F1, KC_F2, KC_F3, KC_F4, KC_F5,
+      KC_F6, KC_F7, KC_F8, KC_F9, KC_F10, _______,
 
       _______, _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
       _______, _______, _______, _______,
-      XXXXXXX, KC_F11, KC_F12, XXXXXXX, _______, KC_PAUSE,
+      XXXXXXX, KC_F11, KC_F12, XXXXXXX, _______, _______,
 
       _______, _______, _______, _______, _______,
       _______, _______, _______, _______, _______
