@@ -1,7 +1,9 @@
-# The Kombol Layout 1.0
+# The Kombol Layout 1.1
+
 A combo-based layout for Ergonomic Mechanical Keyboards, implemented in QMK.
 
-![Kombol_Layout](https://user-images.githubusercontent.com/72839499/109599042-878b8080-7ae8-11eb-8c5c-33f68d6a07be.png)
+![Kombol_Layout_1_1](https://user-images.githubusercontent.com/72839499/130539776-64c081e4-e99b-4d23-a7e8-4db67cdaea16.png)
+
 [View on keyboard-layout-editor.com](http://www.keyboard-layout-editor.com/#/gists/c77544667b70d4c1fbf701af219d2cd7)
 
 
@@ -46,7 +48,7 @@ Remember: Optimal Layout is specific to an individual's biomechanics, keyboard h
 <details>
 <summary>1 Finger vs 2 Finger Combos</summary>
 
-  Vertical Combos (like @#$%) and Horizontal Index Finger Combos (!?) use 1 finger to activate
+  Vertical Combos (like @#$%) and Horizontal Index Finger Combos (+|) use 1 finger to activate
   * You can think of these combos as another key in the space between two keys
   * These combos are fast and ergonomic because they are close to the home row
   * Accidental activation of 1 finger combos is rare
@@ -56,8 +58,8 @@ Remember: Optimal Layout is specific to an individual's biomechanics, keyboard h
   * Accidental activation of 2 finger combos may occur at high typing speeds
     * Reducing COMBO_TERM helps to minimize accidental activations
       * Set COMBO_TERM as low as possible while still allowing consistent activation of combos
-      * A per-combo COMBO_TERM setting would be ideal, but QMK does not yet support it
-      * If accidental activation still occurs, remove those combos from your layout
+      * A per-combo COMBO_TERM setting would be ideal, but QMK does not yet support it :(
+      * If accidental activation still occurs, remove the offending combos from your layout
     
 </details>
 
@@ -157,14 +159,13 @@ Total: $309
 
 ### Favorite Hardware Features
 
+1. Tilting and tenting
+1. Split
+1. Rotary Encoders
 1. Kyria columnar stagger
 1. Kyria thumb arc position and radius
-1. Split
-1. Tilting and tenting
-1. Feel of pressing a single 62g Zilent Switch
 1. Lower profile thumb keycaps
 1. DSA keycaps for combos
-1. Rotary Encoders
 
 ### Drawbacks
 1. Plate case required heavy modification (see below)
@@ -222,7 +223,7 @@ and have:
  * Easily adjustable tent & tilt
  * Integrated wrist rests
 
-Something like a cross between a Kyria/Elora and a GergoPlex Heavy.
+Something like a cross between a Kyria/Elora and a GergoPlex Heavy. I also like the corne design
 
 The real innovation is in the layout I created. I love using it, and hope it will inspire you when you design your own layout.
 </details>
