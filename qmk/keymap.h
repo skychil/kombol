@@ -49,7 +49,7 @@ enum layer_names {
 #define MY_N KC_N
 #define MY_E KC_E
 #define MY_I KC_I
-#define MY_O LGUI_T(KC_O)
+#define MY_O KC_O
 
 // Home Row Mods
 // Activating breaks combos (which are more useful)
