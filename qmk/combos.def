@@ -57,45 +57,8 @@ COMB(bothangle, KC_NO, MY_H, MY_DOT)
 
 // Both Hands
 
-COMB(mylastname, KC_NO, MY_C, MY_COMMA)
-COMB(myemail, KC_NO, MY_S, MY_COMMA)
+COMB(mylastname, KC_NO, MY_C, MY_DOT)
 COMB(myusername, KC_NO, MY_S, MY_DOT)
-COMB(mycompany, KC_NO, MY_R, MY_DOT)
+COMB(myworkemail, KC_NO, MY_T, MY_DOT)
 COMB(myplover, KC_NO, MY_X, MY_DOT)
 
-
-// Failed Plover Experiment
-
-/* COMB(and_, KC_NO, MY_N, MY_D) */
-/* COMB(are_, KC_NO, MY_R, MY_E) */
-/* COMB(but_, KC_NO, MY_B, MY_U) */
-/* COMB(can_, KC_NO, MY_C, MY_N) */
-/* COMB(could_, KC_NO, MY_C, MY_U) */
-/* COMB(dance, KC_NO, MY_D, MY_E) */
-/* COMB(ever, KC_NO, MY_E, MY_V) */
-/* COMB(from, KC_NO, MY_F, MY_M) */
-/* COMB(had, KC_NO, MY_H, MY_D) */
-/* COMB(have, KC_NO, MY_H, MY_V) */
-/* COMB(here, KC_NO, MY_H, MY_R) */
-/* COMB(ing, KC_NO, MY_I, MY_G) */
-/* COMB(just, KC_NO, MY_J, MY_S) */
-/* COMB(ment, KC_NO, MY_M, MY_T) */
-/* COMB(not, KC_NO, MY_N, MY_T) */
-/* COMB(should_, KC_NO, MY_S, MY_U) */
-/* COMB(sky, KC_NO, MY_S, MY_K) */
-/* COMB(son, KC_NO, MY_S, MY_N) */
-/* COMB(some, KC_NO, MY_S, MY_M) */
-/* COMB(thanks, KC_NO, MY_T, MY_K) */
-/* COMB(thankyou, KC_NO, MY_T, MY_U) */
-/* COMB(that_, KC_NO, MY_T, MY_H) */
-/* COMB(they_, KC_NO, MY_T, MY_Y) */
-/* COMB(this_, KC_NO, MY_T, MY_I) */
-/* COMB(were, KC_NO, MY_W, MY_E) */
-/* COMB(what, KC_NO, MY_W, MY_T) */
-/* COMB(which_, KC_NO, MY_W, MY_H) */
-/* COMB(will, KC_NO, MY_W, MY_L) */
-/* COMB(with, KC_NO, MY_W, MY_I) */
-/* COMB(would_, KC_NO, MY_W, MY_U) */
-/* COMB(you, KC_NO, MY_Y, MY_S) */
-/* COMB(your, KC_NO, MY_Y, MY_R) */
-// all, for, about, other

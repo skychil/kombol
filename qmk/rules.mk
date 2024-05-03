@@ -1,4 +1,3 @@
-# TAP_DANCE_ENABLE = yes  # Allow complex single key behavior
 DYNAMIC_MACRO_ENABLE = yes  # Allow recording/playing of vim-like macros
 NKRO_ENABLE = yes  # Enable all keys to be pressed at once (delete to save firmware space)
 

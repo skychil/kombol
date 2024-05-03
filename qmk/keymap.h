@@ -81,13 +81,3 @@ enum layer_names {
 #define MY_Y KC_Y
 #define MY_SCLN KC_SCLN
 
-
-/* // Tap Dance */
-/* enum { */
-/*   DMACRO1_TD = 0, */
-/*   DMACRO2_TD = 1, */
-/* }; */
-
-/* #define TD_DMACRO1 TD(DMACRO1_TD) */
-/* #define TD_DMACRO2 TD(DMACRO2_TD) */
-
