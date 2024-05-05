@@ -82,7 +82,6 @@ enum layer_names {
   _WM,
   _F,
   _M,
-  _VIM
 };
 
 enum custom_keycodes {
@@ -122,64 +121,29 @@ void shift_send_string(const char *normal, const char *shifted) {
   }
 }
 
-
+// Process custom key codes
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-  bool pressed = record->event.pressed;
+  bool p = record->event.pressed;
   switch (keycode) {
-    case CKC_BOTHBRC:
-      if (pressed) {
-        send_string("[]");
-        tap_code(KC_LEFT); // Cursor in between
-      }
-      break;
-    case CKC_BOTHCBR:
-      if (pressed) {
-        send_string("{}");
-        tap_code(KC_LEFT); // Cursor in between
-      }
-      break;
-    case CKC_BOTHPAREN:
-      if (pressed) {
-        send_string("()");
-        tap_code(KC_LEFT); // Cursor in between
-      }
-      break;
-    case CKC_BOTHANGLE:
-      if (pressed) {
-        send_string("<>");
-        tap_code(KC_LEFT); // Cursor in between
-      }
-      break;
-    case CKC_BOTHDQUO:
-      if (pressed) {
-        send_string("\"\"");
-        tap_code(KC_LEFT); // Cursor in between
-      }
-      break;
-    case CKC_BOTHQUOTE:
-      if (pressed) {
-        send_string("''");
-        tap_code(KC_LEFT); // Cursor in between
-      }
-      break;
-    case CKC_BOTHGRAVE:
-      if (pressed) {
-        send_string("``");
-        tap_code(KC_LEFT); // Cursor in between
-      }
-      break;
+    // When printing both parens, etc., the X_LEFT moves the cursor in between them
+    case CKC_BOTHBRC: if (p) send_string("[]" SS_TAP(X_LEFT)); break;
+    case CKC_BOTHCBR: if (p) send_string("{}" SS_TAP(X_LEFT)); break;
+    case CKC_BOTHPAREN: if (p) send_string("()" SS_TAP(X_LEFT)); break;
+    case CKC_BOTHANGLE: if (p) send_string("<>" SS_TAP(X_LEFT)); break;
+    case CKC_BOTHDQUO: if (p) send_string("\"\"" SS_TAP(X_LEFT)); break;
+    case CKC_BOTHQUOTE: if (p) send_string("''" SS_TAP(X_LEFT)); break;
+    case CKC_BOTHGRAVE: if (p) send_string("``" SS_TAP(X_LEFT)); break;
 
-    case CKC_MYLASTNAME: if (pressed) shift_send_string(MY_LASTNAME, MY_LASTNAME_SHIFT); break;
-    case CKC_MYUSERNAME: if (pressed) shift_send_string(MY_USERNAME, MY_GMAIL); break;
-    case CKC_MYWORKEMAIL: if (pressed) shift_send_string(MY_WORK_EMAIL, MY_GMAIL); break;
-    case CKC_MYPLOVER: if (pressed) shift_send_string(MY_PLOVER, MY_PLOVER_SHIFT); break;
+    case CKC_MYLASTNAME: if (p) shift_send_string(MY_LASTNAME, MY_LASTNAME_SHIFT); break;
+    case CKC_MYUSERNAME: if (p) shift_send_string(MY_USERNAME, MY_GMAIL); break;
+    case CKC_MYWORKEMAIL: if (p) shift_send_string(MY_WORK_EMAIL, MY_GMAIL); break;
+    case CKC_MYPLOVER: if (p) shift_send_string(MY_PLOVER, MY_PLOVER_SHIFT); break;
 
     // Vim commands for non-vim editors
-    /* Alterative format: SEND_STRING(SS_LCTL("c")); */
 
     /* Change to end of line */
     case CKC_VIM_C:
-      if (pressed) {
+      if (p) {
         register_code(KC_LSFT);
         tap_code(KC_END);
         unregister_code(KC_LSFT);
@@ -188,7 +152,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       break;
     /* Duplicate  Line */
     case CKC_VIM_D:
-      if (pressed) {
+      if (p) {
         tap_code(KC_HOME);
         register_code(KC_LSFT);
         tap_code(KC_END);
@@ -206,7 +170,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       break;
       /* Select whole line */
     case CKC_VIM_V:
-      if (pressed) {
+      if (p) {
         tap_code(KC_HOME);
         register_code(KC_LSFT);
         tap_code(KC_END);
@@ -280,7 +244,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       _______, KC_F14, KC_F15, KC_F16, KC_F17, KC_F18, // Xf86Launch5-9 (Frequent App Lauchers)
       _______, _______, _______, _______, _______, _______,
 
-      _______, G(KC_1), G(KC_2), G(KC_3), G(KC_4), XXXXXXX,
+      _______, G(KC_1), G(KC_2), G(KC_3), G(KC_4), G(KC_5),
       _______, _______, _______, _______, _______, _______,
 
       XXXXXXX, XXXXXXX, XXXXXXX, CKC_VIM_C, CKC_VIM_D, CKC_VIM_V,
