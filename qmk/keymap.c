@@ -14,48 +14,204 @@
  */
 #include QMK_KEYBOARD_H
 
-#include "keymap.h"
+// Lower Thumb keys
+#define MY_LE RGB_TOG
+#define MY_LT1 KC_LCTL
+#define MY_LT2 LSFT_T(KC_SPACE)
+#define MY_LT3 MO(_WM)
+#define MY_LT4 MO(_F)
+#define MY_RT4 MO(_M)
+#define MY_RT3 MO(_NUM)
+#define MY_RT2 RSFT_T(KC_ENTER)
+#define MY_RT1 MO(_NAV)
+#define MY_RE KC_MUTE
 
-enum custom_keycodes {
-  VIM_C = SAFE_RANGE,
-  VIM_D,
-  VIM_V,
+// Upper Thumb keys
+#define MY_LT5 DM_PLY1
+#define MY_LT6 DM_PLY1
+#define MY_RT6 DM_REC1
+#define MY_RT5 DM_RSTP
+
+// Outer Edge Keys
+#define MY_LOH KC_TAB
+#define MY_LOM KC_ESC
+#define MY_LOL C(KC_LALT)
+
+#define MY_ROH KC_DEL
+#define MY_ROM KC_BSPC
+#define MY_ROL LCTL_T(KC_INS)
+
+// Alpha keys
+#define MY_A LGUI_T(KC_A)
+#define MY_R KC_R
+#define MY_S KC_S
+#define MY_T KC_T
+#define MY_G KC_G
+#define MY_M KC_M
+#define MY_N KC_N
+#define MY_E KC_E
+#define MY_I KC_I
+#define MY_O KC_O
+
+#define MY_Z LALT_T(KC_Z)
+#define MY_X KC_X
+#define MY_C KC_C
+#define MY_D KC_D
+#define MY_V KC_V
+#define MY_K KC_K
+#define MY_H KC_H
+#define MY_COMMA KC_COMMA
+#define MY_DOT KC_DOT
+#define MY_SLASH LALT_T(KC_SLASH)
+
+#define MY_Q KC_Q
+#define MY_W KC_W
+#define MY_F KC_F
+#define MY_P KC_P
+#define MY_B KC_B
+#define MY_J KC_J
+#define MY_L KC_L
+#define MY_U KC_U
+#define MY_Y KC_Y
+#define MY_SCLN KC_SCLN
+
+enum layer_names {
+  _COLEMAK_DHM = 0,
+  _NAV,
+  _NUM,
+  _WM,
+  _F,
+  _M,
+  _VIM
 };
 
-// Vim commands for non-vim editors
-bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-  switch (keycode) {
-    /* Alterative format: SEND_STRING(SS_LCTL("c")); */
-    case VIM_C:
-      if (!record->event.pressed) break;
-      register_code(KC_LSFT);
-      tap_code(KC_END);
-      unregister_code(KC_LSFT);
-      tap_code(KC_DEL);
-      break;
-    /* Duplicate */
-    case VIM_D:
-      if (!record->event.pressed) break;
-      tap_code(KC_HOME);
-      register_code(KC_LSFT);
-      tap_code(KC_END);
-      unregister_code(KC_LSFT);
-      register_code(KC_LCTL);
-      tap_code(KC_C);
-      unregister_code(KC_LCTL);
-      tap_code(KC_RIGHT);
+enum custom_keycodes {
+  CKC_BOTHBRC = SAFE_RANGE,
+  CKC_BOTHGRAVE,
+  CKC_BOTHCBR,
+  CKC_BOTHPAREN,
+  CKC_BOTHDQUO,
+  CKC_BOTHQUOTE,
+  CKC_BOTHANGLE,
+  CKC_MYLASTNAME,
+  CKC_MYUSERNAME,
+  CKC_MYWORKEMAIL,
+  CKC_MYPLOVER,
+  CKC_VIM_C,
+  CKC_VIM_D,
+  CKC_VIM_V,
+};
 
-      tap_code(KC_ENTER);
-      register_code(KC_LCTL);
-      tap_code(KC_V);
-      unregister_code(KC_LCTL);
+// Pull in basic combos (depends on CKC's and MY_'s)
+#include "combos.h" // define combos from combos.def
+#include "personalplover.h"
+
+// Helper function for complex combos
+// Send second arg if shift is held, else send the first
+void shift_send_string(const char *normal, const char *shifted) {
+  uint8_t mod_state = get_mods();
+  if (mod_state & MOD_MASK_SHIFT) {
+    // Temporarily cancel shifts so they aren't applied to the whole string
+    unregister_code(KC_LSFT);
+    unregister_code(KC_RSFT);
+    send_string(shifted);
+    set_mods(mod_state);
+  }
+  else {
+    send_string(normal);
+  }
+}
+
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+  bool pressed = record->event.pressed;
+  switch (keycode) {
+    case CKC_BOTHBRC:
+      if (pressed) {
+        send_string("[]");
+        tap_code(KC_LEFT); // Cursor in between
+      }
       break;
-    case VIM_V:
-      if (!record->event.pressed) break;
-      tap_code(KC_HOME);
-      register_code(KC_LSFT);
-      tap_code(KC_END);
-      unregister_code(KC_LSFT);
+    case CKC_BOTHCBR:
+      if (pressed) {
+        send_string("{}");
+        tap_code(KC_LEFT); // Cursor in between
+      }
+      break;
+    case CKC_BOTHPAREN:
+      if (pressed) {
+        send_string("()");
+        tap_code(KC_LEFT); // Cursor in between
+      }
+      break;
+    case CKC_BOTHANGLE:
+      if (pressed) {
+        send_string("<>");
+        tap_code(KC_LEFT); // Cursor in between
+      }
+      break;
+    case CKC_BOTHDQUO:
+      if (pressed) {
+        send_string("\"\"");
+        tap_code(KC_LEFT); // Cursor in between
+      }
+      break;
+    case CKC_BOTHQUOTE:
+      if (pressed) {
+        send_string("''");
+        tap_code(KC_LEFT); // Cursor in between
+      }
+      break;
+    case CKC_BOTHGRAVE:
+      if (pressed) {
+        send_string("``");
+        tap_code(KC_LEFT); // Cursor in between
+      }
+      break;
+
+    case CKC_MYLASTNAME: if (pressed) shift_send_string(MY_LASTNAME, MY_LASTNAME_SHIFT); break;
+    case CKC_MYUSERNAME: if (pressed) shift_send_string(MY_USERNAME, MY_GMAIL); break;
+    case CKC_MYWORKEMAIL: if (pressed) shift_send_string(MY_WORK_EMAIL, MY_GMAIL); break;
+    case CKC_MYPLOVER: if (pressed) shift_send_string(MY_PLOVER, MY_PLOVER_SHIFT); break;
+
+    // Vim commands for non-vim editors
+    /* Alterative format: SEND_STRING(SS_LCTL("c")); */
+
+    /* Change to end of line */
+    case CKC_VIM_C:
+      if (pressed) {
+        register_code(KC_LSFT);
+        tap_code(KC_END);
+        unregister_code(KC_LSFT);
+        tap_code(KC_DEL);
+      }
+      break;
+    /* Duplicate  Line */
+    case CKC_VIM_D:
+      if (pressed) {
+        tap_code(KC_HOME);
+        register_code(KC_LSFT);
+        tap_code(KC_END);
+        unregister_code(KC_LSFT);
+        register_code(KC_LCTL);
+        tap_code(KC_C);
+        unregister_code(KC_LCTL);
+        tap_code(KC_RIGHT);
+
+        tap_code(KC_ENTER);
+        register_code(KC_LCTL);
+        tap_code(KC_V);
+        unregister_code(KC_LCTL);
+      }
+      break;
+      /* Select whole line */
+    case CKC_VIM_V:
+      if (pressed) {
+        tap_code(KC_HOME);
+        register_code(KC_LSFT);
+        tap_code(KC_END);
+        unregister_code(KC_LSFT);
+      }
       break;
   }
   return true;
@@ -127,7 +283,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       _______, G(KC_1), G(KC_2), G(KC_3), G(KC_4), XXXXXXX,
       _______, _______, _______, _______, _______, _______,
 
-      XXXXXXX, XXXXXXX, XXXXXXX, VIM_C, VIM_D, VIM_V,
+      XXXXXXX, XXXXXXX, XXXXXXX, CKC_VIM_C, CKC_VIM_D, CKC_VIM_V,
       _______, _______, _______, _______,
       _______, _______, _______, _______, _______, _______,
 
@@ -138,7 +294,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,
 
-      KC_CLCK, KC_F1, KC_F2, KC_F3, KC_F4, KC_F5,
+      KC_CAPS, KC_F1, KC_F2, KC_F3, KC_F4, KC_F5,
       KC_F6, KC_F7, KC_F8, KC_F9, KC_F10, _______,
 
       _______, _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,

@@ -1,22 +1,14 @@
 #pragma once
 
-
-#define COMBO_VARIABLE_LEN
-#define COMBO_COUNT COMBO_VARIABLE_LEN
 // Time (in ms) for combo processing
 #define COMBO_TERM 37
+
 
 #define TAPPING_TERM 170
 #define TAPPING_TERM_PER_KEY
 
-// Time (in ms) before one shot keys are released
-#define ONESHOT_TIMEOUT 5000
-
 // Prevent accidental repeats of the tap-hold keys when typing quickly.
 #define TAPPING_FORCE_HOLD
-
-// Prevent normal rollover on alphas from accidentally triggering home row mods.
-#define IGNORE_MOD_TAP_INTERRUPT
 
 // Prevent short hold periods being interpreted as individual taps when typing quickly.
 #define PERMISSIVE_HOLD
@@ -26,10 +18,8 @@
 
 // RGB Underglow
 #ifdef RGBLIGHT_ENABLE
-  // Turn off LEDS when host sleeps
-  #define RGBLIGHT_SLEEP
-  // Don't mirror LEDS
-  #undef RGBLIGHT_SPLIT
+  #define RGBLIGHT_SLEEP  // Turn off LEDS when host sleeps
+  #undef RGBLIGHT_SPLIT  // Don't mirror LEDS
   // Define LEDs in a loop so rainbow swirl is continous across sides
   #define RGBLIGHT_LED_MAP {0,1,2,9,8,7,4,3,5,6,19,18,17,10,11,12,15,16,14,13}
   // Only include animations you're using
@@ -63,3 +53,11 @@
 // The default is 300. Make this as low as possible while keeping the cursor responsive
 #undef MOUSEKEY_DELAY
 #define MOUSEKEY_DELAY 120
+
+// If needed, save firmware space by disabling unused features
+/* #undef LOCKING_SUPPORT_ENABLE */
+/* #undef LOCKING_RESYNC_ENABLE */
+/* #define NO_ACTION_ONESHOT */
+/* #define NO_MUSIC_MODE */
+/* #define LAYER_STATE_8BIT */
+/* #define EXTRA_SHORT_COMBOS */

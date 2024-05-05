@@ -1,10 +1,8 @@
-// Complex Combos using KC_NO are handled in combos.c
-
 // Left
 
 COMB(lbrc, KC_LBRC, MY_W, MY_F)
 COMB(rbrc, KC_RBRC, MY_F, MY_P)
-COMB(bothbrc, KC_NO, MY_W, MY_P)
+COMB(bothbrc, CKC_BOTHBRC, MY_W, MY_P)
 
 COMB(at, KC_AT, MY_W, MY_R)
 COMB(hash, KC_HASH, MY_F, MY_S)
@@ -20,45 +18,44 @@ COMB(pasteselection, S(KC_INS), MY_R, MY_T)
 
 COMB(unds, KC_UNDS, MY_S, MY_D)
 
-COMB(bothgrave, KC_NO, MY_R, MY_X)
+COMB(bothgrave, CKC_BOTHGRAVE, MY_R, MY_X)
 COMB(grave, KC_GRAVE, MY_S, MY_C)
 COMB(tilde, KC_TILDE, MY_T, MY_D)
 
 COMB(lcbr, KC_LCBR, MY_X, MY_C)
 COMB(rcbr, KC_RCBR, MY_C, MY_D)
-COMB(bothcbr, KC_NO, MY_X, MY_D)
+COMB(bothcbr, CKC_BOTHCBR, MY_X, MY_D)
 
 // Right
 
 COMB(lparen, KC_LPRN, MY_L, MY_U)
 COMB(rparen, KC_RPRN, MY_U, MY_Y)
-COMB(bothparen, KC_NO, MY_L, MY_Y)
+COMB(bothparen, CKC_BOTHPAREN, MY_L, MY_Y)
 
 COMB(circ, KC_CIRC, MY_J, MY_M)
 COMB(ampr, KC_AMPR, MY_L, MY_N)
 COMB(astr, KC_ASTR, MY_U, MY_E)
-COMB(bslash, KC_BSLASH, MY_Y, MY_I)
+COMB(bslash, KC_BSLS, MY_Y, MY_I)
 
 COMB(ques, KC_QUES, MY_N, MY_U)
 
 COMB(pipe, KC_PIPE, MY_M, MY_N)
 COMB(dquo, KC_DQUO, MY_N, MY_E)
 COMB(quote, KC_QUOTE, MY_E, MY_I)
-// COMB(dotspaceshift, KC_NO, MY_N, MY_I)
 
 COMB(colon, KC_COLON, MY_H, MY_E)
 
-COMB(bothdquo, KC_NO, MY_N, MY_H)
-COMB(bothquote, KC_NO, MY_E, MY_COMMA)
+COMB(bothdquo, CKC_BOTHDQUO, MY_N, MY_H)
+COMB(bothquote, CKC_BOTHQUOTE, MY_E, MY_COMMA)
 
 COMB(labr, KC_LABK, MY_H, MY_COMMA)
 COMB(rabr, KC_RABK, MY_COMMA, MY_DOT)
-COMB(bothangle, KC_NO, MY_H, MY_DOT)
+COMB(bothangle, CKC_BOTHANGLE, MY_H, MY_DOT)
 
 // Both Hands
 
-COMB(mylastname, KC_NO, MY_C, MY_DOT)
-COMB(myusername, KC_NO, MY_S, MY_DOT)
-COMB(myworkemail, KC_NO, MY_T, MY_DOT)
-COMB(myplover, KC_NO, MY_X, MY_DOT)
+COMB(mylastname, CKC_MYLASTNAME, MY_C, MY_DOT)
+COMB(myusername, CKC_MYUSERNAME, MY_S, MY_DOT)
+COMB(myworkemail, CKC_MYWORKEMAIL, MY_T, MY_DOT)
+COMB(myplover, CKC_MYPLOVER, MY_X, MY_DOT)
 
