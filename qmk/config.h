@@ -3,18 +3,19 @@
 // Time (in ms) for combo processing
 #define COMBO_TERM 37
 
-
 #define TAPPING_TERM 170
-#define TAPPING_TERM_PER_KEY
 
-// Prevent accidental repeats of the tap-hold keys when typing quickly.
-#define TAPPING_FORCE_HOLD
+// Allow tapping repeat of a dual purpose key (held / tapped)
+#define QUICK_TAP_TERM 100
 
 // Prevent short hold periods being interpreted as individual taps when typing quickly.
 #define PERMISSIVE_HOLD
 
 // Don't allow macro calls in macros
 #define DYNAMIC_MACRO_NO_NESTING
+
+// Allows media codes to properly register in macros and rotary encoder code
+#define TAP_CODE_DELAY 10
 
 // RGB Underglow
 #ifdef RGBLIGHT_ENABLE
@@ -30,8 +31,6 @@
   #define RGBLIGHT_LAYERS
 #endif
 
-// Allows media codes to properly register in macros and rotary encoder code
-#define TAP_CODE_DELAY 10
 
 // Determine left / right by which file is flashed.
 /* #define EE_HANDS */

@@ -18,7 +18,7 @@
 #define MY_LE RGB_TOG
 #define MY_LT1 KC_LCTL
 #define MY_LT2 LSFT_T(KC_SPACE)
-#define MY_LT3 MO(_WM)
+#define MY_LT3 MO(_W)
 #define MY_LT4 MO(_F)
 #define MY_RT4 MO(_M)
 #define MY_RT3 MO(_NUM)
@@ -27,10 +27,10 @@
 #define MY_RE KC_MUTE
 
 // Upper Thumb keys
-#define MY_LT5 DM_PLY1
-#define MY_LT6 DM_PLY1
-#define MY_RT6 DM_REC1
-#define MY_RT5 DM_RSTP
+#define MY_LT5 DM_REC1
+#define MY_LT6 DM_RSTP
+#define MY_RT6 DM_PLY1
+#define MY_RT5 DM_PLY1
 
 // Outer Edge Keys
 #define MY_LOH KC_TAB
@@ -77,11 +77,11 @@
 
 enum layer_names {
   _COLEMAK_DHM = 0,
-  _NAV,
-  _NUM,
-  _WM,
-  _F,
-  _M,
+  _NAV, // Up Down Left Right Home End PrintScr
+  _NUM, // Number Pad 0-9 . + -
+  _W, // Window management, app launchers, capslock
+  _F, // F1-F12
+  _M, // Media Control, Dynamic Macros, Mouse Keys
 };
 
 enum custom_keycodes {
@@ -95,10 +95,10 @@ enum custom_keycodes {
   CKC_MYLASTNAME,
   CKC_MYUSERNAME,
   CKC_MYWORKEMAIL,
-  CKC_MYPLOVER,
-  CKC_VIM_C,
-  CKC_VIM_D,
-  CKC_VIM_V,
+  CKC_MYPLOVER
+  /* CKC_VIM_C, */
+  /* CKC_VIM_D, */
+  /* CKC_VIM_V, */
 };
 
 // Pull in basic combos (depends on CKC's and MY_'s)
@@ -139,44 +139,44 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case CKC_MYWORKEMAIL: if (p) shift_send_string(MY_WORK_EMAIL, MY_GMAIL); break;
     case CKC_MYPLOVER: if (p) shift_send_string(MY_PLOVER, MY_PLOVER_SHIFT); break;
 
-    // Vim commands for non-vim editors
+    /* // Vim commands for non-vim editors */
 
-    /* Change to end of line */
-    case CKC_VIM_C:
-      if (p) {
-        register_code(KC_LSFT);
-        tap_code(KC_END);
-        unregister_code(KC_LSFT);
-        tap_code(KC_DEL);
-      }
-      break;
-    /* Duplicate  Line */
-    case CKC_VIM_D:
-      if (p) {
-        tap_code(KC_HOME);
-        register_code(KC_LSFT);
-        tap_code(KC_END);
-        unregister_code(KC_LSFT);
-        register_code(KC_LCTL);
-        tap_code(KC_C);
-        unregister_code(KC_LCTL);
-        tap_code(KC_RIGHT);
+    /* /1* Change to end of line *1/ */
+    /* case CKC_VIM_C: */
+    /*   if (p) { */
+    /*     register_code(KC_LSFT); */
+    /*     tap_code(KC_END); */
+    /*     unregister_code(KC_LSFT); */
+    /*     tap_code(KC_DEL); */
+    /*   } */
+    /*   break; */
+    /* /1* Duplicate  Line *1/ */
+    /* case CKC_VIM_D: */
+    /*   if (p) { */
+    /*     tap_code(KC_HOME); */
+    /*     register_code(KC_LSFT); */
+    /*     tap_code(KC_END); */
+    /*     unregister_code(KC_LSFT); */
+    /*     register_code(KC_LCTL); */
+    /*     tap_code(KC_C); */
+    /*     unregister_code(KC_LCTL); */
+    /*     tap_code(KC_RIGHT); */
 
-        tap_code(KC_ENTER);
-        register_code(KC_LCTL);
-        tap_code(KC_V);
-        unregister_code(KC_LCTL);
-      }
-      break;
-      /* Select whole line */
-    case CKC_VIM_V:
-      if (p) {
-        tap_code(KC_HOME);
-        register_code(KC_LSFT);
-        tap_code(KC_END);
-        unregister_code(KC_LSFT);
-      }
-      break;
+    /*     tap_code(KC_ENTER); */
+    /*     register_code(KC_LCTL); */
+    /*     tap_code(KC_V); */
+    /*     unregister_code(KC_LCTL); */
+    /*   } */
+    /*   break; */
+    /*   /1* Select whole line *1/ */
+    /* case CKC_VIM_V: */
+    /*   if (p) { */
+    /*     tap_code(KC_HOME); */
+    /*     register_code(KC_LSFT); */
+    /*     tap_code(KC_END); */
+    /*     unregister_code(KC_LSFT); */
+    /*   } */
+    /*   break; */
   }
   return true;
 };
@@ -217,18 +217,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       XXXXXXX, KC_HOME, KC_UP, KC_END, XXXXXXX, _______,
 
       _______, _______, _______, _______, _______, _______,
-      XXXXXXX, KC_LEFT, KC_DOWN, KC_RIGHT, KC_PSCR, _______,
+      KC_TAB, KC_LEFT, KC_DOWN, KC_RIGHT, KC_PSCR, _______,
 
       _______, _______, _______, _______, _______, _______,
       _______, _______, _______, _______,
-      XXXXXXX, XXXXXXX, KC_LT, KC_GT, XXXXXXX, _______,
+      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,
 
       _______, _______, _______, _______, _______,
       _______, _______, _______, _______, _______
       ),
   [_NUM] = LAYOUT(
       _______, _______, _______, _______, _______, _______,
-      KC_PLUS, KC_7, KC_8, KC_9, _______, _______,
+      KC_PLUS, KC_7, KC_8, KC_9, KC_EQUAL, _______,
 
       _______, _______, _______, _______, _______, _______,
       KC_DOT, KC_4, KC_5, KC_6, KC_0, _______,
@@ -240,14 +240,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       _______, _______, _______, _______, _______,
       _______, _______, _______, _______, _______
       ),
-  [_WM] = LAYOUT(
-      _______, KC_F14, KC_F15, KC_F16, KC_F17, KC_F18, // Xf86Launch5-9 (Frequent App Lauchers)
+  [_W] = LAYOUT(
+      _______, G(S(KC_1)), G(S(KC_2)), G(S(KC_3)), G(S(KC_4)), G(S(KC_5)), // Move window to workspace
       _______, _______, _______, _______, _______, _______,
 
-      _______, G(KC_1), G(KC_2), G(KC_3), G(KC_4), G(KC_5),
+      KC_CAPS, G(KC_1), G(KC_2), G(KC_3), G(KC_4), G(KC_5), // Switch to workspace
       _______, _______, _______, _______, _______, _______,
 
-      XXXXXXX, XXXXXXX, XXXXXXX, CKC_VIM_C, CKC_VIM_D, CKC_VIM_V,
+      _______, KC_F14, KC_F15, KC_F16, KC_F17, KC_F18, // Xf86Launch5-9 (Frequent App Launchers)
       _______, _______, _______, _______,
       _______, _______, _______, _______, _______, _______,
 
@@ -255,27 +255,27 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       _______, _______, _______, _______, _______
       ),
   [_F] = LAYOUT(
-      _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+      _______, KC_F11, KC_F12, XXXXXXX, XXXXXXX, XXXXXXX,
       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,
 
-      KC_CAPS, KC_F1, KC_F2, KC_F3, KC_F4, KC_F5,
-      KC_F6, KC_F7, KC_F8, KC_F9, KC_F10, _______,
+      _______, KC_F1, KC_F2, KC_F3, KC_F4, KC_F5,
+      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,
 
-      _______, _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+      _______, KC_F6, KC_F7, KC_F8, KC_F9, KC_F10,
       _______, _______, _______, _______,
-      XXXXXXX, KC_F11, KC_F12, XXXXXXX, _______, _______,
+      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,
 
       _______, _______, _______, _______, _______,
       _______, _______, _______, _______, _______
       ),
   [_M] = LAYOUT(
-      _______, XXXXXXX, KC_F23, KC_F22, XXXXXXX, XXXXXXX,
-      XXXXXXX, KC_WH_D, KC_MS_U, KC_WH_U, XXXXXXX, _______,
+      _______, _______, _______, _______, _______, _______,
+      XXXXXXX, KC_WH_U, KC_MS_U, KC_WH_D, XXXXXXX, _______,
 
-      XXXXXXX, XXXXXXX, KC_MPRV, KC_MNXT, KC_MPLY, XXXXXXX,
+      _______, XXXXXXX, KC_MPRV, KC_MNXT, KC_MPLY, XXXXXXX,
       XXXXXXX, KC_MS_L, KC_MS_D, KC_MS_R, KC_BTN2, _______,
 
-      _______, RGB_HUI, RGB_SAI, RGB_VAI, RGB_MOD, _______,
+      _______, _______, _______, _______, _______, _______,
       _______, _______, _______, _______,
       XXXXXXX, KC_BTN1, KC_BTN2, KC_BTN3, XXXXXXX, _______,
 
@@ -320,7 +320,7 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
   }
   else if (index == 1) { // Right
     // Inverting 'clockwise' to be able to flash both sides with the same file
-    if (IS_LAYER_ON(_WM)) {
+    if (IS_LAYER_ON(_W)) {
       // Zoom
       if (clockwise) {
         tap_code16(C(KC_EQUAL));
@@ -370,31 +370,39 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
 
 // {5, 2, HSV_AZURE},  // Starting with LED 6, set 2 LEDs to Azure
 
-const rgblight_segment_t PROGMEM my_macrorec_layer[] = RGBLIGHT_LAYER_SEGMENTS(
-  {0, 10, HSV_PINK},
-  {10, 10, HSV_PINK}
+const rgblight_segment_t PROGMEM my_NUM_layer[] = RGBLIGHT_LAYER_SEGMENTS(
+  {11, 2, HSV_RED},  // a few red on the right hand
+  {15, 4, HSV_RED}
 );
-const rgblight_segment_t PROGMEM my_capslock_layer[] = RGBLIGHT_LAYER_SEGMENTS(
-  {0, 10, HSV_ORANGE},
-  {10, 10, HSV_ORANGE}
+const rgblight_segment_t PROGMEM my_W_layer[] = RGBLIGHT_LAYER_SEGMENTS(
+  {1, 4, HSV_ORANGE},  // a few orange on the left hand
+  {7, 2, HSV_ORANGE}
 );
 const rgblight_segment_t PROGMEM my_F_layer[] = RGBLIGHT_LAYER_SEGMENTS(
-  {0, 6, HSV_CYAN},
-  {9, 2, HSV_CYAN},
-  {14, 6, HSV_CYAN}
+  {1, 4, HSV_GREEN}, // a few green on the left hand
+  {7, 2, HSV_GREEN}
 );
 const rgblight_segment_t PROGMEM my_M_layer[] = RGBLIGHT_LAYER_SEGMENTS(
-  {0, 6, HSV_PURPLE},
-  {9, 2, HSV_PURPLE},
-  {14, 6, HSV_PURPLE}
+  {1, 4, HSV_PURPLE}, // Purple on both hands
+  {7, 2, HSV_PURPLE},
+  {11, 2, HSV_PURPLE},
+  {15, 4, HSV_PURPLE}
 );
+/* const rgblight_segment_t PROGMEM my_macrorec_layer[] = RGBLIGHT_LAYER_SEGMENTS( */
+/*   {0, 20, HSV_PINK}  // All pink */
+/* ); */
+/* const rgblight_segment_t PROGMEM my_capslock_layer[] = RGBLIGHT_LAYER_SEGMENTS( */
+/*   {0, 20, HSV_GOLD}  // All yellow */
+/* ); */
 
 // Define up to 8 layers. Later layers take precedence.
 const rgblight_segment_t* const PROGMEM my_rgb_layers[] = RGBLIGHT_LAYERS_LIST(
-    my_macrorec_layer, // 0
-    my_capslock_layer,
+    my_NUM_layer,  // 0
+    my_W_layer,
     my_F_layer,
     my_M_layer
+    /* my_capslock_layer, */
+    /* my_macrorec_layer */
     );
 
 void keyboard_post_init_user(void) {
@@ -402,29 +410,31 @@ void keyboard_post_init_user(void) {
 }
 
 layer_state_t layer_state_set_user(layer_state_t state) {
+  rgblight_set_layer_state(0, layer_state_cmp(state, _NUM));
+  rgblight_set_layer_state(1, layer_state_cmp(state, _W));
   rgblight_set_layer_state(2, layer_state_cmp(state, _F));
   rgblight_set_layer_state(3, layer_state_cmp(state, _M));
   return state;
 }
 
-// Track Capslock state
-bool led_update_user(led_t led_state) {
-  rgblight_set_layer_state(1, led_state.caps_lock);
-  return true;
-}
+// On update to any keyboard LED (like Capslock)
+// Set the layer light to 
+/* bool led_update_user(led_t led_state) { */
+/*   rgblight_set_layer_state(4, led_state.caps_lock); */
+/*   return true; */
+/* } */
 
-// Track Macro Recording state, this didn't work due to qmk bug
-/* void dynamic_macro_record_start_user(void) { */
-/*   rgblight_set_layer_state(0, true); */
+/* void dynamic_macro_record_start_user(int8_t direction) { */
+/*   rgblight_set_layer_state(5, true); */
 /* } */
 /* void dynamic_macro_record_end_user(int8_t direction) { */
-/*   rgblight_set_layer_state(0, false); */
+/*   rgblight_set_layer_state(5, false); */
 /* } */
 // Blink when a macro is played back
 /* void dynamic_macro_play_user(int8_t direction) { */
-/*   rgblight_set_layer_state(0, true); */
+/*   rgblight_set_layer_state(5, true); */
 /*   wait_ms(1000); */
-/*   rgblight_set_layer_state(0, false); */
+/*   rgblight_set_layer_state(5, false); */
 /* } */
 
 #endif

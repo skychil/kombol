@@ -1,4 +1,4 @@
-# The Kombol Layout 1.1
+# The Kombol Layout 2.0
 
 A combo-based layout for Ergonomic Mechanical Keyboards, implemented in QMK.
 
@@ -8,16 +8,28 @@ A combo-based layout for Ergonomic Mechanical Keyboards, implemented in QMK.
 
 
 ### Features
-1. Combo based Symbols layer, including ' " ? : < > and double symbols () [] {} <> '' "" ``
-1. Backspace next to right pinky
-1. Nav Layer (Arrow Keys, Home/End)
-1. Shifts, Space, and Enter on home position thumb keys
-1. Page Up/Dn, Undo/Redo on Rotary Encoders
-1. Colemak DHm
-
-### Drawbacks
-1. Mod locations are not symmetric
-1. Learning it makes typing on "normal" keyboards feel slow
+1. Combos for Symbols!
+  1. Vertical combos for @ # $ % ^ & *
+  1. Horizontal combos for () [] {} <>
+1. Layers for:
+  1. Navigation
+  1. Number Pad
+  1. Window Management
+  1. Function Keys
+1. Ergonomic Locations for:
+  1. Escape: next to left pinky
+  1. Backspace: next to right pinky
+  1. Enter: under right thumb
+  1. Shift: under both thumbs
+  1. Ctrl: next to left thumb
+  1. Layer Activation: next to thumbs
+1. Rotary Encoders for:
+  1. Page Up/Dn
+  1. Undo/Redo (zy)
+  1. Undo/Redo (zZ)
+  1. Volume
+  1. Zoom
+1. Colemak DHm for alpha keys
 
 ### Optimal Use Case
 * Software Development in Vim using a tiling window manager
@@ -28,6 +40,7 @@ A combo-based layout for Ergonomic Mechanical Keyboards, implemented in QMK.
 ### Design Principles
 Keep it simple.
 Keep it ergo.
+Use the home row as much as possible.
 Test everything!
 
 Remember: Optimal Layout is specific to an individual's biomechanics, keyboard hardware, and use case.
@@ -42,8 +55,8 @@ Remember: Optimal Layout is specific to an individual's biomechanics, keyboard h
 * Double symbols like <>, "" make great combos
   * A left arrow is added to position the cursor in between
   * They work in every application and website
-* Having all symbols on the base layer and combos is easy to remember
-  * Compare with the common practice of: some on the base layer, some on the shift layer, and some on a "symbols" layer
+* Having all symbols on the base layer is ideal for programming
+  * Compare with the common practice of: some symbols on the base layer, some on the Shift layer, and some on a separate "Symbols" layer
 
 <details>
 <summary>1 Finger vs 2 Finger Combos</summary>
@@ -58,41 +71,23 @@ Remember: Optimal Layout is specific to an individual's biomechanics, keyboard h
   * Accidental activation of 2 finger combos may occur at high typing speeds
     * Reducing COMBO_TERM helps to minimize accidental activations
       * Set COMBO_TERM as low as possible while still allowing consistent activation of combos
-      * A per-combo COMBO_TERM setting would be ideal, but QMK does not yet support it :(
+      * COMBO_TERM_PER_COMBO can be used for fine tuning per combo
       * If accidental activation still occurs, remove the offending combos from your layout
-    
-</details>
-
-<details>
-<summary>QMK Combo Limitations</summary>
-
-  Combos are amazing, but they are half baked in QMK.
-
-  * At the time I wrote my layout, combos required massive boilerplate with silly things like counting and defining the total number of combos
-    * I used a C preprocessor file from the community to make it tractable
-      * If that file's functionality was incorporated into QMK, combos would be easier to use
-
-  * Combos didn't work with home row mods, record macro keycodes, or tap dance keys, and this was not well documented
-    * [A possible workaround from precondition](https://precondition.github.io/home-row-mods#using-mod-taps-in-combos)
-    * Once QMK allows home row mods and combos on the same key, I will likely update my mod locations
-
-  * There is only one global COMBO_TERM setting
-    * A specific COMBO_TERM for each combo would be ideal
 
 </details>
 
 <details>
   <summary>Features tested and NOT used</summary>
-  
-  1. Symbols on a layer
+
+  1. Symbols on a symbols layer
      * Symbols on combos tested more ergonomic, faster, and more enjoyable
   1. Arrow keys on mnei and neio (qwerty hjkl and jkl;)
      * As a long time vim user I was expecting to prefer mnei
      * Testing revealed neiu (jkli) to be most ergo because it put the the more frequent keys (down and right) on my strongest two fingers (middle and ring)
   1. Numbers on the home row, numbers on the top row
-     * The numpad tested fastest and most usable, which I also did not expect
-  1. F keys on the top row, and F keys on the numpad
-     * F keys on the home row tested best, because of the frequency of pressing F1-F5
+     * The numpad layout tested fastest and most usable, which I also did not expect.
+  1. F keys on the top row only, F keys on the home row only, F keys on the numpad
+     * F keys on the left hand tested best. Most important is having F1-F5 on the home row, since they are used the most.
   1. [Home Row Mods](https://precondition.github.io/home-row-mods#using-mod-taps-in-combos) for all mods
      * Having mods on the index fingers tested poorly because they locked out 6 alpha keys per side
      * Shift on home thumb keys tested better, which I was not expecting
