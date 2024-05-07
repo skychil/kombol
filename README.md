@@ -8,14 +8,12 @@ A combo-based layout for Ergonomic Mechanical Keyboards, implemented in QMK.
 
 
 ### Features
-1. Combos for Symbols! e.g. Vertical combos for @ # $ % ^ & *, Horizontal combos for () [] {} <>)
+1. Combos for Symbols! Vertical combos for @ # $ % ^ & *, Horizontal combos for () [] {} <>
 1. Layers for Navigation, Number Pad, Window Management, Function Keys
 1. Ergonomic Locations for Escape, Backspace, Enter, Shift, Ctrl, Layer toggle
 1. Rotary Encoders for Page Up/Dn, Undo/Redo (zy), Undo/Redo (zZ), Volume, Zoom
 1. Colemak DHm for alpha keys
-1. Supports Kyria and other columnar staggar keyboards with multiple thumb keys
-
-Note: Combos are easiest with flat keycaps like DSA 
+1. Supports Kyria and other columnar staggar keyboards with multiple thumb keys and flat keycaps like DSA
 
 ### Optimal Use Case
 * Software Development in Vim using a tiling window manager
