@@ -2,33 +2,16 @@
 
 A combo-based layout for Ergonomic Mechanical Keyboards, implemented in QMK.
 
-![Kombol_Layout_2_0](https://github.com/skychil/kombol/assets/72839499/247f553b-27c8-47fc-a006-41b9d9367f89)
+![Kombol_Layout_2_0](https://github.com/skychil/kombol/assets/72839499/a9952dce-a351-4607-92b0-b0727eba25e1)
 
 [View on keyboard-layout-editor.com](http://www.keyboard-layout-editor.com/#/gists/7bb981556c8217376e5da2d1a728ff07)
 
 
 ### Features
-1. Combos for Symbols!
-  * Vertical combos for @ # $ % ^ & *
-  * Horizontal combos for () [] {} <>
-1. Layers for:
-  * Navigation
-  * Number Pad
-  * Window Management
-  * Function Keys
-1. Ergonomic Locations for:
-  * Escape: next to left pinky
-  * Backspace: next to right pinky
-  * Enter: under right thumb
-  * Shift: under both thumbs
-  * Ctrl: next to left thumb
-  * Layer Activation: next to thumbs
-1. Rotary Encoders for:
-  * Page Up/Dn
-  * Undo/Redo (zy)
-  * Undo/Redo (zZ)
-  * Volume
-  * Zoom
+1. Combos for Symbols! e.g. Vertical combos for @ # $ % ^ & *, Horizontal combos for () [] {} <>)
+1. Layers for Navigation, Number Pad, Window Management, Function Keys
+1. Ergonomic Locations for Escape, Backspace, Enter, Shift, Ctrl, Layer toggle
+1. Rotary Encoders for Page Up/Dn, Undo/Redo (zy), Undo/Redo (zZ), Volume, Zoom
 1. Colemak DHm for alpha keys
 1. Supports Kyria and other columnar staggar keyboards with multiple thumb keys
 
