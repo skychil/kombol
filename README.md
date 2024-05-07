@@ -1,6 +1,6 @@
 # The Kombol Layout 2.0
 
-A combo-based layout for Ergonomic Mechanical Keyboards, implemented in QMK.
+A combo-based layout for Ergonomic Mechanical Keyboards, implemented in QMK (version 0.24.8).
 
 ![Kombol_Layout_2_0](https://github.com/skychil/kombol/assets/72839499/a9952dce-a351-4607-92b0-b0727eba25e1)
 
