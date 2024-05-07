@@ -2,34 +2,37 @@
 
 A combo-based layout for Ergonomic Mechanical Keyboards, implemented in QMK.
 
-![Kombol_Layout_1_1](https://user-images.githubusercontent.com/72839499/130539776-64c081e4-e99b-4d23-a7e8-4db67cdaea16.png)
+![Kombol_Layout_2_0](https://github.com/skychil/kombol/assets/72839499/247f553b-27c8-47fc-a006-41b9d9367f89)
 
-[View on keyboard-layout-editor.com](http://www.keyboard-layout-editor.com/#/gists/c77544667b70d4c1fbf701af219d2cd7)
+[View on keyboard-layout-editor.com](http://www.keyboard-layout-editor.com/#/gists/7bb981556c8217376e5da2d1a728ff07)
 
 
 ### Features
 1. Combos for Symbols!
-  1. Vertical combos for @ # $ % ^ & *
-  1. Horizontal combos for () [] {} <>
+  * Vertical combos for @ # $ % ^ & *
+  * Horizontal combos for () [] {} <>
 1. Layers for:
-  1. Navigation
-  1. Number Pad
-  1. Window Management
-  1. Function Keys
+  * Navigation
+  * Number Pad
+  * Window Management
+  * Function Keys
 1. Ergonomic Locations for:
-  1. Escape: next to left pinky
-  1. Backspace: next to right pinky
-  1. Enter: under right thumb
-  1. Shift: under both thumbs
-  1. Ctrl: next to left thumb
-  1. Layer Activation: next to thumbs
+  * Escape: next to left pinky
+  * Backspace: next to right pinky
+  * Enter: under right thumb
+  * Shift: under both thumbs
+  * Ctrl: next to left thumb
+  * Layer Activation: next to thumbs
 1. Rotary Encoders for:
-  1. Page Up/Dn
-  1. Undo/Redo (zy)
-  1. Undo/Redo (zZ)
-  1. Volume
-  1. Zoom
+  * Page Up/Dn
+  * Undo/Redo (zy)
+  * Undo/Redo (zZ)
+  * Volume
+  * Zoom
 1. Colemak DHm for alpha keys
+1. Supports Kyria and other columnar staggar keyboards with multiple thumb keys
+
+Note: Combos are easiest with flat keycaps like DSA 
 
 ### Optimal Use Case
 * Software Development in Vim using a tiling window manager
