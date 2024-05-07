@@ -206,3 +206,6 @@ Something like a cross between a Kyria/Elora and a GergoPlex Heavy. I also like 
 
 The real innovation is in the layout I created. I love using it, and hope it will inspire you when you design your own layout.
 </details>
+
+If you're using ZMK, check out:
+https://github.com/skychil/kombol/issues/1
