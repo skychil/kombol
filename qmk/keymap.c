@@ -95,6 +95,7 @@ enum custom_keycodes {
   CKC_MYLASTNAME,
   CKC_MYUSERNAME,
   CKC_MYWORKEMAIL,
+  CKC_MYPHONE,
   CKC_MYPLOVER
   /* CKC_VIM_C, */
   /* CKC_VIM_D, */
@@ -137,6 +138,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case CKC_MYLASTNAME: if (p) shift_send_string(MY_LASTNAME, MY_LASTNAME_SHIFT); break;
     case CKC_MYUSERNAME: if (p) shift_send_string(MY_USERNAME, MY_GMAIL); break;
     case CKC_MYWORKEMAIL: if (p) shift_send_string(MY_WORK_EMAIL, MY_GMAIL); break;
+    case CKC_MYPHONE: if (p) shift_send_string(MY_PHONE, MY_ADDRESS); break;
     case CKC_MYPLOVER: if (p) shift_send_string(MY_PLOVER, MY_PLOVER_SHIFT); break;
 
     /* // Vim commands for non-vim editors */
