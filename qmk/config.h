@@ -19,7 +19,6 @@
 
 // RGB Underglow
 #ifdef RGBLIGHT_ENABLE
-  #define RGBLIGHT_SLEEP  // Turn off LEDS when host sleeps
   #undef RGBLIGHT_SPLIT  // Don't mirror LEDS
   // Define LEDs in a loop so rainbow swirl is continous across sides
   #define RGBLIGHT_LED_MAP {0,1,2,9,8,7,4,3,5,6,19,18,17,10,11,12,15,16,14,13}
